@@ -1,26 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\",
+  "WorkspaceRootPath": "C:\\Users\\Adrian\\Desktop\\CYD-OG\\CYD-countyourdollars-\\CYD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00BCA348-877A-43B5-913F-BD95AC1B7D1A}|CYD.csproj|C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\resources\\layout\\activity_main.axml||{A4B51DF8-501B-45AD-A022-1A0D18A2B7B0}",
-      "RelativeMoniker": "D:0:0:{00BCA348-877A-43B5-913F-BD95AC1B7D1A}|CYD.csproj|solutionrelative:resources\\layout\\activity_main.axml||{A4B51DF8-501B-45AD-A022-1A0D18A2B7B0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00BCA348-877A-43B5-913F-BD95AC1B7D1A}|CYD.csproj|C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\properties\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{00BCA348-877A-43B5-913F-BD95AC1B7D1A}|CYD.csproj|solutionrelative:properties\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00BCA348-877A-43B5-913F-BD95AC1B7D1A}|CYD.csproj|C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\loginactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{00BCA348-877A-43B5-913F-BD95AC1B7D1A}|CYD.csproj|solutionrelative:loginactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00BCA348-877A-43B5-913F-BD95AC1B7D1A}|CYD.csproj|C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\resources\\layout\\activity_login.axml||{A4B51DF8-501B-45AD-A022-1A0D18A2B7B0}",
-      "RelativeMoniker": "D:0:0:{00BCA348-877A-43B5-913F-BD95AC1B7D1A}|CYD.csproj|solutionrelative:resources\\layout\\activity_login.axml||{A4B51DF8-501B-45AD-A022-1A0D18A2B7B0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\obj\\Debug\\130\\AndroidManifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:obj\\Debug\\130\\AndroidManifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{335319C6-D4CA-4143-BF2F-7F32DBED3472}|CYD\\CYD.csproj|c:\\users\\adrian\\desktop\\cyd-og\\cyd-countyourdollars-\\cyd\\cyd\\gettingstarted.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{335319C6-D4CA-4143-BF2F-7F32DBED3472}|CYD\\CYD.csproj|solutionrelative:cyd\\gettingstarted.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,66 +14,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AndroidManifest.xml",
-              "DocumentMoniker": "C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\obj\\Debug\\130\\AndroidManifest.xml",
-              "RelativeDocumentMoniker": "obj\\Debug\\130\\AndroidManifest.xml",
-              "ToolTip": "C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\obj\\Debug\\130\\AndroidManifest.xml",
-              "RelativeToolTip": "obj\\Debug\\130\\AndroidManifest.xml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
-              "WhenOpened": "2024-10-28T20:18:34.226Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LoginActivity.cs",
-              "DocumentMoniker": "C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\LoginActivity.cs",
-              "RelativeDocumentMoniker": "LoginActivity.cs",
-              "ToolTip": "C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\LoginActivity.cs",
-              "RelativeToolTip": "LoginActivity.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAiwB0AAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T19:20:47.828Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AndroidManifest.xml",
-              "DocumentMoniker": "C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\Properties\\AndroidManifest.xml",
-              "RelativeDocumentMoniker": "Properties\\AndroidManifest.xml",
-              "ToolTip": "C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\Properties\\AndroidManifest.xml",
-              "RelativeToolTip": "Properties\\AndroidManifest.xml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
-              "WhenOpened": "2024-10-28T19:20:48.084Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "activity_main.axml",
-              "DocumentMoniker": "C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\Resources\\layout\\activity_main.axml",
-              "RelativeDocumentMoniker": "Resources\\layout\\activity_main.axml",
-              "ToolTip": "C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\Resources\\layout\\activity_main.axml",
-              "RelativeToolTip": "Resources\\layout\\activity_main.axml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-28T19:20:48.108Z",
+              "Title": "GettingStarted.txt",
+              "DocumentMoniker": "C:\\Users\\Adrian\\Desktop\\CYD-OG\\CYD-countyourdollars-\\CYD\\CYD\\GettingStarted.txt",
+              "RelativeDocumentMoniker": "CYD\\GettingStarted.txt",
+              "ToolTip": "C:\\Users\\Adrian\\Desktop\\CYD-OG\\CYD-countyourdollars-\\CYD\\CYD\\GettingStarted.txt",
+              "RelativeToolTip": "CYD\\GettingStarted.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-11-10T14:19:29.773Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "activity_login.axml",
-              "DocumentMoniker": "C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\Resources\\layout\\activity_login.axml",
-              "RelativeDocumentMoniker": "Resources\\layout\\activity_login.axml",
-              "ToolTip": "C:\\Users\\Adrian\\CYD-countyourdollars-\\CYD\\Resources\\layout\\activity_login.axml",
-              "RelativeToolTip": "Resources\\layout\\activity_login.axml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-28T19:20:48.109Z"
             }
           ]
         }

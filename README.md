@@ -1,1 +1,0 @@
-COUNTYOURDOLLARS - aplikacja finansowa
