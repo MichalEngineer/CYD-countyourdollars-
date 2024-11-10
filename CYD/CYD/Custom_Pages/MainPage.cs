@@ -9,56 +9,69 @@ namespace CYD.Custom_Pages
         Entry userNameEntry;
         Entry passwordEntry;
         Button loginButton;
+        Image loginIcon;
         StackLayout stackLayout;
 
         public MainPage()
         {
-            // Initialize the entries and button
+            // Tworzymy obrazek jako ikona logowania
+            loginIcon = new Image
+            {
+                Source = "login_icon.png", // Ścieżka do Twojej ikony
+                WidthRequest = 200, // Określenie szerokości ikony
+                HeightRequest = 100, // Określenie wysokości ikony (np. długie)
+                HorizontalOptions = LayoutOptions.Center, // Wyrównanie poziome
+                VerticalOptions = LayoutOptions.CenterAndExpand // Wyrównanie pionowe na środku
+            };
+
+            // Tworzymy inne elementy (np. pola tekstowe i przycisk)
             userNameEntry = new Entry
             {
-                Placeholder = "login"
+                Placeholder = "Login",
+                HorizontalOptions = LayoutOptions.FillAndExpand
             };
 
             passwordEntry = new Entry
             {
-                Placeholder = "hasło",
-                IsPassword = true
+                Placeholder = "Hasło",
+                IsPassword = true,
+                HorizontalOptions = LayoutOptions.FillAndExpand
             };
 
             loginButton = new Button
             {
-                Text = "Zaloguj"
+                Text = "Zaloguj",
+                HorizontalOptions = LayoutOptions.FillAndExpand
             };
 
-            // Event handler for login button
+            // Event handler dla przycisku logowania
             loginButton.Clicked += LoginButton_Clicked;
 
-            // Padding and layout configuration
+            // Tworzymy StackLayout
             this.Padding = new Thickness(20);
             stackLayout = new StackLayout
             {
-                VerticalOptions = LayoutOptions.FillAndExpand,
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                Orientation = StackOrientation.Vertical,
-                Spacing = 10,
+                VerticalOptions = LayoutOptions.CenterAndExpand, // Wyśrodkowanie elementów w pionie
+                HorizontalOptions = LayoutOptions.CenterAndExpand, // Wyśrodkowanie elementów w poziomie
+                Spacing = 15, // Ustawienie odstępu między elementami
                 Children = {
+                    loginIcon, // Dodajemy obrazek na początku, aby był na górze
                     userNameEntry,
                     passwordEntry,
                     loginButton
                 }
             };
 
-            // Set the page content
+            // Ustawiamy StackLayout jako zawartość strony
             this.Content = stackLayout;
         }
 
-        // Button click event handler
+        // Event handler dla przycisku logowania
         void LoginButton_Clicked(object sender, EventArgs e)
         {
-            // Log the entered username and password
+            // Zapisujemy dane użytkownika
             Debug.WriteLine(string.Format("Login: {0} - Hasło: {1}",
                 userNameEntry.Text, passwordEntry.Text));
         }
     }
 }
-
