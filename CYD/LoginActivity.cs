@@ -31,7 +31,7 @@ namespace CYD
 
                 if (login == "admin" && password == "haslo")
                 {
-                    
+                    Intent intent = new Intent(this, typeof(MainActivity));
                 }
                 else
                 {
