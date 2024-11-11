@@ -1,14 +1,15 @@
-﻿using CYD.ViewModels;
-using CYD.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using CYD.Custom_Pages;
+using CYD.ViewModels;
+using CYD.Views;
 using Xamarin.Forms;
 
-namespace CYD
+namespace CYD.Custom_Pages
 {
-    public partial class AppShell : Xamarin.Forms.Shell
+    public partial class HomePage : Xamarin.Forms.Shell
     {
-        public AppShell()
+        public HomePage()
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));

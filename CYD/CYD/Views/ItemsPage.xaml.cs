@@ -1,12 +1,12 @@
-﻿using CYD.Models;
-using CYD.ViewModels;
-using CYD.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CYD.Models;
+using CYD.ViewModels;
+using CYD.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

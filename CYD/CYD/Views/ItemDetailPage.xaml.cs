@@ -1,5 +1,5 @@
-﻿using CYD.ViewModels;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using CYD.ViewModels;
 using Xamarin.Forms;
 
 namespace CYD.Views

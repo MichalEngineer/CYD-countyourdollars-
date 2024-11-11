@@ -1,7 +1,7 @@
-﻿using CYD.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CYD.Views;
 using Xamarin.Forms;
 
 namespace CYD.ViewModels

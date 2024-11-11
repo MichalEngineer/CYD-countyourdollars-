@@ -1,9 +1,9 @@
-﻿using CYD.Models;
-using CYD.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using CYD.Models;
+using CYD.Services;
 using Xamarin.Forms;
 
 namespace CYD.ViewModels

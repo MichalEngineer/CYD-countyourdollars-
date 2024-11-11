@@ -1,7 +1,7 @@
-﻿using CYD.Models;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using CYD.Models;
 using Xamarin.Forms;
 
 namespace CYD.ViewModels

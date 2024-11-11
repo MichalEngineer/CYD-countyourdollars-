@@ -1,8 +1,8 @@
-﻿using CYD.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using CYD.Models;
 using Xamarin.Forms;
 
 namespace CYD.ViewModels

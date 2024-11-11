@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CYD.Custom_Pages.Logowanie"
+             BackgroundColor="#000000">
+    <ContentPage.Content>
+        <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+
+            <!-- Logo -->
+            <Image Source="logo_resized_180x180.png" WidthRequest="180" HeightRequest="180"/>
+
+            <!-- Login Entry -->
+            <Entry x:Name="txtLogin" Placeholder="Login" TextColor="White" PlaceholderColor="Gray"/>
+
+            <!-- Password Entry -->
+            <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True" TextColor="White" PlaceholderColor="Gray"/>
+
+            <!-- Login Button -->
+            <Button Text="Log In" 
+        TextColor="White" 
+        BackgroundColor="ForestGreen" 
+        BorderColor="ForestGreen" 
+        BorderWidth="1.5" 
+        CornerRadius="50"
+        Clicked="Button_Clicked"/>
+
+            <!-- Register Label -->
+            <Label HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Make account " TextColor="Gray"/>
+                        <Span Text="Register" TextColor="Gray" FontAttributes="Bold" TextDecorations="Underline"/>
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Tap"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

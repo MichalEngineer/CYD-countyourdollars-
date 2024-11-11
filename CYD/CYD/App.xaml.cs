@@ -1,7 +1,6 @@
-﻿using CYD.Services;
+﻿using System;
+using CYD.Services;
 using CYD.Views;
-using System;
-using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CYD.Custom_Pages;
@@ -13,9 +12,13 @@ namespace CYD
 
         public App()
         {
-            MainPage = new MainPage();
-        }
+            InitializeComponent();
 
+            //DependencyService.Register<MockDataStore>();
+            //MainPage = new AppShell();
+            MainPage = new NavigationPage(new Logowanie());
+        }
+        
         protected override void OnStart()
         {
         }
