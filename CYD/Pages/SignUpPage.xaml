@@ -19,10 +19,10 @@
             
             <!-- Imię -->
             <Border BackgroundColor="Transparent"
-        Stroke="LightGreen"
-        Margin="0,15,0,0"
-        Padding="0"
-        HorizontalOptions="FillAndExpand">
+                    Stroke="LightGreen"
+                    Margin="0,15,0,0"
+                    Padding="0"
+                    HorizontalOptions="FillAndExpand">  
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="FillAndExpand"
                              VerticalOptions="CenterAndExpand"
@@ -30,7 +30,6 @@
                     <Entry x:Name="FirstNameEntry"
                            Placeholder="First Name"
                            HorizontalOptions="FillAndExpand"
-                           VerticalOptions="Center"
                            TextColor="Black"
                            FontAttributes="Bold"
                            HeightRequest="40"
