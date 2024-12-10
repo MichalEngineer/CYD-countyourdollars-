@@ -30,6 +30,7 @@
                     <Entry x:Name="FirstNameEntry"
                            Placeholder="First Name"
                            HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"
                            TextColor="Black"
                            FontAttributes="Bold"
                            HeightRequest="40"
