@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CYD.Pages.SignUpPage"
+             Title="Sign Up"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout Padding="20" Spacing="10" VerticalOptions="Center">
+        <Label Text="Sign Up" 
+               FontSize="Large" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" />
+        <Entry Placeholder="Username" />
+        <Entry Placeholder="Password" IsPassword="True" />
+        <Button Text="Register" />
+    </StackLayout>
+</ContentPage>

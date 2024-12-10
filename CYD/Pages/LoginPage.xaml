@@ -2,10 +2,205 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CYD.Pages.LoginPage"
-             Title="LoginPage">
-    <VerticalStackLayout Padding="20">
+             Title="LoginPage"
+             NavigationPage.HasNavigationBar="False">
+    <!--<VerticalStackLayout Padding="20">
         <Entry x:Name="UsernameEntry" Placeholder="Username" />
         <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" />
         <Button Text="Login" Clicked="OnLoginButtonClicked" />
-    </VerticalStackLayout>
-</ContentPage>
+    </VerticalStackLayout>-->
+    <Grid BackgroundColor="LightGray">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+
+        <StackLayout Grid.Row="0">
+            <Image Source="Resources/Images/logo.png" 
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            Aspect="AspectFill"/>
+        </StackLayout>
+
+        <Grid RowSpacing="5"
+              Grid.Row="1"
+              Margin="20,20,20,0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="1" Text="Welcome!"
+                   HorizontalOptions="Center"
+                   FontSize="Title"
+                   FontAttributes="Bold"
+                   Padding="10"
+                   Margin="0"/>
+
+            <Label Grid.Row="2"
+                   Text="Sign in to continue"
+                   HorizontalOptions="Center"
+                   FontSize="Medium"/>
+
+            <StackLayout Grid.Row="3"
+                         Orientation="Vertical"
+                         HorizontalOptions="CenterAndExpand">
+
+                <Border BackgroundColor="Transparent"
+                        Stroke="LightGreen"
+                        Padding="0"
+                        HorizontalOptions="FillAndExpand">
+
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="CenterAndExpand"
+                                 Spacing="5">
+
+                        <Border BackgroundColor="SkyBlue"
+                                HeightRequest="40"
+                                WidthRequest="40"
+                                Padding="0"
+                                Margin="5">
+
+                            <Image Source="Resources/Images/profile_user.png"                               
+                                   Aspect="AspectFill"
+                                   Margin="0"/>
+
+                        </Border>
+
+                        <Entry 
+                                x:Name="UsernameEntry" 
+                                Placeholder="Username" 
+                                TextColor="Black"
+                                FontAttributes="Bold"
+                                VerticalOptions="Center"
+                                HorizontalOptions="FillAndExpand"
+                                HeightRequest="40"
+                                Margin="0,0,5,0" />    
+
+                    </StackLayout>
+                </Border>
+                <Border BackgroundColor="Transparent"
+                        Stroke="LightGreen"
+                        Margin="0,15,0,0"
+                        Padding="0"
+                        HorizontalOptions="FillAndExpand">
+
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="CenterAndExpand"
+                                 Spacing="5">
+
+                        <Border BackgroundColor="SkyBlue"
+                                HeightRequest="40"
+                                WidthRequest="40"
+                                StrokeShape="RoundRectangle"
+                                Padding="0"
+                                Margin="5">
+
+                            <Image Source="Resources/Images/password.png"                               
+                                   Aspect="AspectFill"
+                                   Margin="0"/>
+
+                        </Border>
+
+                        <Entry x:Name="PasswordEntry"
+                               Placeholder="Password"
+                               IsPassword="True"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center"
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               HeightRequest="40"
+                               Margin="0,0,5,0" />
+
+
+                    </StackLayout>
+                </Border>
+
+                <StackLayout Orientation="Horizontal"                           
+                             Margin="0,5,0,0"
+                             Padding="0">
+                    
+                <CheckBox IsChecked="False"/>
+                    
+                 <Label Text="Remember Me"
+                        TextColor="Black"
+                        FontSize="Small"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Center"/>
+                </StackLayout>
+
+                <Button 
+                        Text="Login" 
+                        Clicked="OnLoginButtonClicked"
+                        BackgroundColor="LawnGreen"
+                        TextColor="White" 
+                        FontAttributes="Bold" 
+                        CornerRadius="30" 
+                        WidthRequest="200" 
+                        Margin="0,15,0,0" />
+
+                <StackLayout Orientation="Horizontal" 
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Margin="0,60,0,0"
+                             Padding="10,0"
+                             Spacing="5">
+
+                    <Label Text="New User?" 
+                           TextColor="Black" 
+                           FontSize="Small"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Start" /> 
+
+                  
+                    <Label Text="Sign Up" 
+                           TextColor="MediumPurple" 
+                           FontAttributes="Bold"
+                           TextDecorations="Underline"
+                           FontSize="Small"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSignUpTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Margin="0,10,0,0"
+                             Padding="10,0"
+                             Spacing="5">
+
+                    <Label Text="Forgot Password?"
+                           TextColor="MediumPurple"
+                           FontSize="Small"
+                           FontAttributes="Bold"
+                           TextDecorations="Underline"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center">
+                        
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnForgotPasswordTapped" />
+                        </Label.GestureRecognizers>
+                        
+                    </Label>
+                </StackLayout>
+
+            </StackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage> 

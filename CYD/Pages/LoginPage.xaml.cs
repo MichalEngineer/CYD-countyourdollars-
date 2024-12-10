@@ -24,4 +24,14 @@ public partial class LoginPage : ContentPage
             await DisplayAlert("Error", "Invalid username or password", "OK");
         }
     }
+    private async void OnSignUpTapped(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new SignUpPage());
+    }
+
+    private async void OnForgotPasswordTapped(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ForgotPasswordPage());
+    }
+
 }

@@ -2,21 +2,29 @@
 {
     public partial class App : Application
     {
+        private NavigationPage _navigationPage;
+
         public App()
         {
-            
             InitializeComponent();
+
+            
+            _navigationPage = new NavigationPage(new LoginPage())
+            {
+                BarBackgroundColor = Colors.Transparent,
+                BarTextColor = Colors.Transparent
+            };
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            var window = new Window(new LoginPage());
+            
+            var window = new Window(_navigationPage);
 
-            // Subskrybuj zdarzenie logowania
+            
             LoginPage.LoginSuccessful += (sender, args) =>
             {
-                // Po zalogowaniu zmieniamy Page
-                window.Page = new AppShell();
+                window.Page = new AppShell(); 
             };
 
             return window;
