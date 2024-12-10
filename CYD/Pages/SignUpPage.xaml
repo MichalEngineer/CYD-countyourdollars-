@@ -2,16 +2,160 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CYD.Pages.SignUpPage"
-             Title="Sign Up"
+             BackgroundColor="LightGray"
+             Padding="20"
              NavigationPage.HasNavigationBar="False">
 
-    <StackLayout Padding="20" Spacing="10" VerticalOptions="Center">
-        <Label Text="Sign Up" 
-               FontSize="Large" 
-               FontAttributes="Bold" 
-               HorizontalOptions="Center" />
-        <Entry Placeholder="Username" />
-        <Entry Placeholder="Password" IsPassword="True" />
-        <Button Text="Register" />
-    </StackLayout>
+
+    <ScrollView>
+        <StackLayout Spacing="15" VerticalOptions="CenterAndExpand">
+
+            <!-- Tytuł -->
+            <Label Text="Create an Account"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="Black" />
+            
+            <!-- Imię -->
+            <Border BackgroundColor="Transparent"
+        Stroke="LightGreen"
+        Margin="0,15,0,0"
+        Padding="0"
+        HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="CenterAndExpand"
+                             Spacing="5">
+                    <Entry x:Name="FirstNameEntry"
+                           Placeholder="First Name"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           HeightRequest="40"
+                           BackgroundColor="#FFF5E1"
+                           Margin="0,0,5,0" />
+                </StackLayout>
+            </Border>
+
+            <!-- Nazwisko -->
+            <Border BackgroundColor="Transparent"
+                    Stroke="LightGreen"
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="CenterAndExpand"
+                             Spacing="5">
+                    <Entry x:Name="LastNameEntry"
+                           Placeholder="Last Name"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           HeightRequest="40"
+                           BackgroundColor="#FFF5E1"
+                           Margin="0,0,5,0" />
+                </StackLayout>
+            </Border>
+
+            <!-- Adres e-mail -->
+            <Border BackgroundColor="Transparent"
+                    Stroke="LightGreen"
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="CenterAndExpand"
+                             Spacing="5">
+                    <Entry x:Name="EmailEntry"
+                           Placeholder="Email Address"
+                           Keyboard="Email"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           HeightRequest="40"
+                           BackgroundColor="#FFF5E1" 
+                           HorizontalOptions="FillAndExpand"
+                           Margin="0,0,5,0" />
+                </StackLayout>
+            </Border>
+
+            <!-- Hasło -->
+            <Border BackgroundColor="Transparent"
+                    Stroke="LightGreen"
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="CenterAndExpand"
+                             Spacing="5">
+                    <Entry x:Name="PasswordEntry"
+                           Placeholder="Password"
+                           IsPassword="True"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           HeightRequest="40"
+                           BackgroundColor="#FFF5E1"  
+                           HorizontalOptions="FillAndExpand"
+                           Margin="0,0,5,0" />
+                </StackLayout>
+            </Border>
+
+            <!-- Potwierdzenie hasła -->
+            <Border BackgroundColor="Transparent"
+                    Stroke="LightGreen"
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="CenterAndExpand"
+                             Spacing="5">
+                    <Entry x:Name="ConfirmPasswordEntry"
+                           Placeholder="Confirm Password"
+                           IsPassword="True"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           HeightRequest="40"
+                           BackgroundColor="#FFF5E1"
+                           HorizontalOptions="FillAndExpand"
+                           Margin="0,0,5,0" />
+                </StackLayout>
+            </Border>
+
+            <!-- Przycisk rejestracji -->
+            <Button Text="Sign Up"
+                    BackgroundColor="LawnGreen"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="OnSignUpClicked"
+                    Margin="0,20"/>
+
+            <!-- Link do logowania -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="5">
+                <Label Text="Already have an account?"
+                       FontSize="Small"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start" />
+                <Label Text="Login"
+                       FontSize="Small"
+                       TextColor="LawnGreen"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnLoginTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

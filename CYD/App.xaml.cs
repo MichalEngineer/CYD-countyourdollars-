@@ -8,7 +8,7 @@
         {
             InitializeComponent();
 
-            
+            // Inicjalizacja NavigationPage w konstruktorze
             _navigationPage = new NavigationPage(new LoginPage())
             {
                 BarBackgroundColor = Colors.Transparent,
@@ -18,13 +18,14 @@
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            
+            // Tworzymy główne okno
             var window = new Window(_navigationPage);
 
-            
+            // Subskrypcja na zdarzenie udanego logowania
             LoginPage.LoginSuccessful += (sender, args) =>
             {
-                window.Page = new AppShell(); 
+                // Zmiana strony na AppShell po udanym logowaniu
+                _navigationPage.PushAsync(new AppShell());
             };
 
             return window;
