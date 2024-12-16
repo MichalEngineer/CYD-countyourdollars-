@@ -13,14 +13,12 @@ public partial class SignUpPage : ContentPage
 
     private async void OnSignUpClicked(object sender, EventArgs e)
     {
-        // Pobieranie tekstu z pól Entry
         string firstName = FirstNameEntry.Text;
         string lastName = LastNameEntry.Text;
         string email = EmailEntry.Text;
         string password = PasswordEntry.Text;
         string confirmPassword = ConfirmPasswordEntry.Text;
 
-        // Prosta walidacja
         if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
             string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) ||
             string.IsNullOrEmpty(confirmPassword))
@@ -60,10 +58,8 @@ public partial class SignUpPage : ContentPage
 
     }
 
-    // Obs³uguje klikniêcie linku "Login"
     private async void OnLoginTapped(object sender, EventArgs e)
     {
-        // Powrót do strony logowania
         await Navigation.PopAsync();
     }
 }

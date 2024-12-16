@@ -4,11 +4,6 @@
              x:Class="CYD.Pages.LoginPage"
              Title="LoginPage"
              NavigationPage.HasNavigationBar="False">
-    <!--<VerticalStackLayout Padding="20">
-        <Entry x:Name="UsernameEntry" Placeholder="Username" />
-        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" />
-        <Button Text="Login" Clicked="OnLoginButtonClicked" />
-    </VerticalStackLayout>-->
     <Grid BackgroundColor="LightGray">
 
         <Grid.RowDefinitions>
