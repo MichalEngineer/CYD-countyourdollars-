@@ -1,7 +1,9 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using CYD.Pages;
 using Syncfusion.Maui.Toolkit.Hosting;
-
+using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Controls.Hosting;
 namespace CYD
 {
     public static class MauiProgram
@@ -28,7 +30,7 @@ namespace CYD
     		builder.Logging.AddDebug();
     		builder.Services.AddLogging(configure => configure.AddDebug());
 #endif
-
+            
             builder.Services.AddSingleton<ProjectRepository>();
             builder.Services.AddSingleton<TaskRepository>();
             builder.Services.AddSingleton<CategoryRepository>();

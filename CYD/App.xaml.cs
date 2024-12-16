@@ -3,32 +3,30 @@
     public partial class App : Application
     {
         private NavigationPage _navigationPage;
-
         public App()
         {
             InitializeComponent();
 
-            // Inicjalizacja NavigationPage w konstruktorze
             _navigationPage = new NavigationPage(new LoginPage())
             {
                 BarBackgroundColor = Colors.Transparent,
                 BarTextColor = Colors.Transparent
             };
+            SubscribeToLoginSuccessful();
         }
-
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            // Tworzymy główne okno
             var window = new Window(_navigationPage);
+            return window;
+        }
 
-            // Subskrypcja na zdarzenie udanego logowania
+        private void SubscribeToLoginSuccessful()
+        {
             LoginPage.LoginSuccessful += (sender, args) =>
             {
                 // Zmiana strony na AppShell po udanym logowaniu
                 _navigationPage.PushAsync(new AppShell());
             };
-
-            return window;
         }
     }
 }

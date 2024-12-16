@@ -16,13 +16,13 @@
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
                    TextColor="Black" />
-            
+
             <!-- Imię -->
             <Border BackgroundColor="Transparent"
                     Stroke="LightGreen"
                     Margin="0,15,0,0"
                     Padding="0"
-                    HorizontalOptions="FillAndExpand">  
+                    HorizontalOptions="FillAndExpand">
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="FillAndExpand"
                              VerticalOptions="CenterAndExpand"

@@ -27,10 +27,21 @@
         Route="manage" />
 
     <Shell.FlyoutFooter>
-        <Grid Padding="15">
-            <sf:SfSegmentedControl x:Name="ThemeSegmentedControl" 
-                VerticalOptions="Center" HorizontalOptions="Center" SelectionChanged="SfSegmentedControl_SelectionChanged"
-                SegmentWidth="40" SegmentHeight="40">
+        <Grid Padding="15" ColumnSpacing="10">
+            <!-- Definiowanie kolumn -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Segmented Control -->
+            <sf:SfSegmentedControl x:Name="ThemeSegmentedControl"
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Start" 
+                               SelectionChanged="SfSegmentedControl_SelectionChanged"
+                               SegmentWidth="40" 
+                               SegmentHeight="40"
+                               Grid.Column="0">
                 <sf:SfSegmentedControl.ItemsSource>
                     <x:Array Type="{x:Type sf:SfSegmentItem}">
                         <sf:SfSegmentItem ImageSource="{StaticResource IconLight}"/>
@@ -38,7 +49,15 @@
                     </x:Array>
                 </sf:SfSegmentedControl.ItemsSource>
             </sf:SfSegmentedControl>
+
+            <!-- Logout Button -->
+            <Button Text="Logout" 
+                VerticalOptions="Center" 
+                HorizontalOptions="End"
+                Grid.Column="1"
+                Clicked="OnLogoutButtonClicked" />
         </Grid>
     </Shell.FlyoutFooter>
+
 
 </Shell>
