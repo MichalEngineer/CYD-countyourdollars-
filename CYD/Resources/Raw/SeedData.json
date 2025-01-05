@@ -1,60 +1,127 @@
 {
     "Projects": [
         {
-            "Name": "Balance",
-            "Description": "Improve work-life balance.",
-            "Icon": "\uea28",
-            "Category": { "Title": "work", "Color": "#3068df" },
+            "Name": "Groceries",
+            "Description": "Monthly grocery shopping.",
+            "Icon": "\uE8B5",
+            "Category": {
+                "Title": "Food",
+                "Color": "#32CD32"
+            },
             "Tags": [
-                { "Title": "work", "Color": "#3068df" }
+                {
+                    "Title": "groceries",
+                    "Color": "#32CD32"
+                },
+                {
+                    "Title": "essential",
+                    "Color": "#FFD700"
+                }
             ],
             "Tasks": [
-                { "Title": "Survey Employees", "IsCompleted": false },
-                { "Title": "Analyze Survey Results", "IsCompleted": false },
-                { "Title": "Develop Action Plan", "IsCompleted": false }
+                {
+                    "Title": "Supermarket Shopping",
+                    "IsCompleted": false,
+                    "Amount": 50.0
+                },
+                {
+                    "Title": "Local Store Purchase",
+                    "IsCompleted": false,
+                    "Amount": 30.0
+                }
             ]
         },
         {
-            "Name": "Personal",
-            "Description": "Learn to speak another language.",
-            "Icon": "\uf8fe",
-            "Category": { "Title": "education", "Color": "#8800FF" },
+            "Name": "Transport",
+            "Description": "Commuting and travel expenses.",
+            "Icon": "\uE90F",
+            "Category": {
+                "Title": "Transport",
+                "Color": "#FF6347"
+            },
             "Tags": [
-                { "Title": "personal", "Color": "#FF4500" }
+                {
+                    "Title": "transport",
+                    "Color": "#FF6347"
+                },
+                {
+                    "Title": "commuting",
+                    "Color": "#8A2BE2"
+                }
             ],
             "Tasks": [
-                { "Title": "Read a Book", "IsCompleted": false },
-                { "Title": "Attend a Workshop", "IsCompleted": false },
-                { "Title": "Practice a Hobby", "IsCompleted": false }
+                {
+                    "Title": "Fuel",
+                    "IsCompleted": false,
+                    "Amount": 40.0
+                },
+                {
+                    "Title": "Public Transport",
+                    "IsCompleted": false,
+                    "Amount": 15.0
+                }
             ]
         },
         {
-            "Name": "Fitness",
-            "Description": "Promote health and fitness activities",
-            "Icon": "\uf837",
-            "Category": { "Title": "self", "Color": "#FF3300" },
+            "Name": "Entertainment",
+            "Description": "Leisure and recreation activities.",
+            "Icon": "\uE7B3",
+            "Category": {
+                "Title": "Leisure",
+                "Color": "#FF1493"
+            },
             "Tags": [
-                { "Title": "health", "Color": "#32CD32" }
+                {
+                    "Title": "entertainment",
+                    "Color": "#FF1493"
+                },
+                {
+                    "Title": "movies",
+                    "Color": "#DC143C"
+                }
             ],
             "Tasks": [
-                { "Title": "Morning Yoga", "IsCompleted": false },
-                { "Title": "Evening Run", "IsCompleted": false },
-                { "Title": "Healthy Cooking Class", "IsCompleted": false }
+                {
+                    "Title": "Movie Outing",
+                    "IsCompleted": false,
+                    "Amount": 20.0
+                },
+                {
+                    "Title": "Concert",
+                    "IsCompleted": false,
+                    "Amount": 50.0
+                }
             ]
         },
         {
-            "Name": "Family and Friends",
-            "Description": "Strengthen relationships with family and friends.",
-            "Icon": "\uf5a9",
-            "Category": { "Title": "relationships", "Color": "#FF9900" },
+            "Name": "Utilities",
+            "Description": "Monthly utility bills.",
+            "Icon": "\uE8C1",
+            "Category": {
+                "Title": "Bills",
+                "Color": "#1E90FF"
+            },
             "Tags": [
-                { "Title": "family", "Color": "#1E90FF" },
-                { "Title": "friends", "Color": "#FF69B4" }
+                {
+                    "Title": "utilities",
+                    "Color": "#1E90FF"
+                },
+                {
+                    "Title": "electricity",
+                    "Color": "#FFFF00"
+                }
             ],
             "Tasks": [
-                { "Title": "Plan a Family Reunion", "IsCompleted": false },
-                { "Title": "Organize a Friends' Get-together", "IsCompleted": false },
-                { "Title": "Weekly Phone Calls", "IsCompleted": false }
+                {
+                    "Title": "Electricity Bill",
+                    "IsCompleted": false,
+                    "Amount": 60.0
+                },
+                {
+                    "Title": "Water Bill",
+                    "IsCompleted": false,
+                    "Amount": 30.0
+                }
             ]
         }
     ]

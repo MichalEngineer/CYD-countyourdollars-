@@ -26,6 +26,12 @@
         ContentTemplate="{DataTemplate pages:ManageMetaPage}"
         Route="manage" />
 
+    <ShellContent
+    Title="Investments"
+    Icon="{StaticResource IconMeta}"
+    ContentTemplate="{DataTemplate pages:AboutPage}"
+    Route="about" />
+
     <Shell.FlyoutFooter>
         <Grid Padding="15" ColumnSpacing="10">
             <!-- Definiowanie kolumn -->

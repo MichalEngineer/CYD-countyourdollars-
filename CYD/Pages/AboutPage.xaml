@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CYD.Pages.AboutPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:CYD.Models"
+    Title="Cryptocurrencies">
+
+    <ScrollView>
+        <StackLayout Padding="10">
+            <Label 
+                Text="Here, we present some of the most popular cryptocurrencies in the market." 
+                FontSize="20" 
+                HorizontalOptions="Center" 
+                TextColor="#8A2BE2"
+                LineBreakMode="WordWrap" 
+                FontAttributes="Bold" />
+
+            <Label 
+                Text="Investing in cryptocurrencies can be a high-risk, high-reward opportunity. Understanding market trends and risks is crucial for making informed decisions." 
+                FontSize="15" 
+                HorizontalOptions="Center" 
+                TextColor="#555"
+                LineBreakMode="WordWrap" 
+                Margin="0,10,0,20" />
+
+            <CollectionView ItemsSource="{Binding Cryptocurrencies}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="Auto,*" Padding="10">
+                            <Image Source="{Binding Image}" WidthRequest="50" HeightRequest="50" />
+                            <StackLayout Grid.Column="1" Margin="10,0,0,0">
+                                <Label Text="{Binding Name}" FontSize="18" />
+                                <Label Text="{Binding Symbol}" FontSize="14" TextColor="Gray" />
+                                <Label Text="{Binding Current_price, StringFormat='${0:F2}'}" FontSize="16" TextColor="Green" />
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
