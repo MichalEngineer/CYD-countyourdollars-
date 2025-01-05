@@ -25,12 +25,31 @@
         Icon="{StaticResource IconMeta}"
         ContentTemplate="{DataTemplate pages:ManageMetaPage}"
         Route="manage" />
+    <ShellContent
+        Title="Add Spending"
+        Icon="{StaticResource IconMeta}"
+        ContentTemplate="{DataTemplate pages:AddSpendingPage}"
+        Route="addspending" />
+
 
     <ShellContent
-    Title="Investments"
+    Title="Cryptcurrencies"
     Icon="{StaticResource IconMeta}"
     ContentTemplate="{DataTemplate pages:AboutPage}"
     Route="about" />
+
+    <ShellContent
+        Title="Spendings"
+        Icon="{StaticResource IconMeta}"
+        ContentTemplate="{DataTemplate pages:SpendingsPage}"
+        Route="spendings" />
+
+    <ShellContent
+    Title="Currency Rates"
+    Icon="{StaticResource IconMeta}"
+    ContentTemplate="{DataTemplate pages:CurrencyPage}"
+    Route="currency" />
+
 
     <Shell.FlyoutFooter>
         <Grid Padding="15" ColumnSpacing="10">

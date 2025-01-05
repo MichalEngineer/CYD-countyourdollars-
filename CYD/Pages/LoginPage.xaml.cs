@@ -57,6 +57,7 @@ public partial class LoginPage : ContentPage
         }
         catch (Exception ex)
         {
+            await SecureStorage.SetAsync("user_email", email);
             // Obs³uga ogólnych b³êdów
             await DisplayAlert("Error", $"Mistake: {ex.Message}", "OK");
         }

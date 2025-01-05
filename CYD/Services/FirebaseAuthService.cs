@@ -82,10 +82,28 @@ public class FirebaseAuthService
         var email = await SecureStorage.GetAsync("user_email");
         return email ?? "Nie jesteœ zalogowany";  // Zwraca komunikat, jeœli email jest pusty;  // Pobiera e-mail z SecureStorage
     }
+    public async Task<string> GetCurrentUserIdAsync()
+    {
+        // Zwróci UID użytkownika (LocalId)
+        var email = await SecureStorage.GetAsync("user_email");
+        if (string.IsNullOrEmpty(email))
+        {
+            return string.Empty;
+        }
+
+        // Logowanie się na podstawie zapisanej lokalnie wiadomości e-mail
+        var user = await _authProvider.SignInWithEmailAndPasswordAsync(email, "userPassword"); // Dodaj hasło lub przekaż je dynamicznie
+        return user.User.LocalId;  // Zwraca LocalId (UID) użytkownika
+    }
 
     // --------------------------
     // Wylogowanie u¿ytkownika
     // --------------------------
+    public async Task<bool> IsUserLoggedInAsync()
+    {
+        var email = await SecureStorage.GetAsync("user_email");
+        return !string.IsNullOrEmpty(email);
+    }
     public async Task LogoutAsync()
     {
         // Usuwa e-mail u¿ytkownika z SecureStorage podczas wylogowania
