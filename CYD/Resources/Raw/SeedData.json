@@ -1,101 +1,95 @@
 {
     "Projects": [
         {
-            "Name": "Groceries",
-            "Description": "Monthly grocery shopping.",
+            "Name": "Investments",
+            "Description": "Investment opportunities and financial planning.",
             "Icon": "\uE8B5",
             "Category": {
-                "Title": "Food",
+                "Title": "Investments",
                 "Color": "#32CD32"
             },
             "Tags": [
                 {
-                    "Title": "groceries",
+                    "Title": "stocks",
                     "Color": "#32CD32"
                 },
                 {
-                    "Title": "essential",
+                    "Title": "bonds",
                     "Color": "#FFD700"
                 }
             ],
             "Tasks": [
                 {
-                    "Title": "Supermarket Shopping",
-                    "IsCompleted": false,
-                    "Amount": 50.0
+                    "Title": "Stock Market",
+                    "IsCompleted": false
                 },
                 {
-                    "Title": "Local Store Purchase",
-                    "IsCompleted": false,
-                    "Amount": 30.0
+                    "Title": "Real Estate",
+                    "IsCompleted": false
                 }
             ]
         },
         {
-            "Name": "Transport",
-            "Description": "Commuting and travel expenses.",
+            "Name": "Savings",
+            "Description": "Saving accounts, emergency funds, and retirement savings.",
             "Icon": "\uE90F",
             "Category": {
-                "Title": "Transport",
+                "Title": "Savings",
                 "Color": "#FF6347"
             },
             "Tags": [
                 {
-                    "Title": "transport",
+                    "Title": "savings",
                     "Color": "#FF6347"
                 },
                 {
-                    "Title": "commuting",
+                    "Title": "retirement",
                     "Color": "#8A2BE2"
                 }
             ],
             "Tasks": [
                 {
-                    "Title": "Fuel",
-                    "IsCompleted": false,
-                    "Amount": 40.0
+                    "Title": "Emergency Fund",
+                    "IsCompleted": false
                 },
                 {
-                    "Title": "Public Transport",
-                    "IsCompleted": false,
-                    "Amount": 15.0
+                    "Title": "Retirement Fund",
+                    "IsCompleted": false
                 }
             ]
         },
         {
-            "Name": "Entertainment",
-            "Description": "Leisure and recreation activities.",
+            "Name": "Debt Management",
+            "Description": "Strategies for managing and eliminating debt.",
             "Icon": "\uE7B3",
             "Category": {
-                "Title": "Leisure",
+                "Title": "Debt",
                 "Color": "#FF1493"
             },
             "Tags": [
                 {
-                    "Title": "entertainment",
+                    "Title": "loan",
                     "Color": "#FF1493"
                 },
                 {
-                    "Title": "movies",
+                    "Title": "credit card",
                     "Color": "#DC143C"
                 }
             ],
             "Tasks": [
                 {
-                    "Title": "Movie Outing",
-                    "IsCompleted": false,
-                    "Amount": 20.0
+                    "Title": "Pay Credit Card Debt",
+                    "IsCompleted": false
                 },
                 {
-                    "Title": "Concert",
-                    "IsCompleted": false,
-                    "Amount": 50.0
+                    "Title": "Pay Loan Installments",
+                    "IsCompleted": false
                 }
             ]
         },
         {
-            "Name": "Utilities",
-            "Description": "Monthly utility bills.",
+            "Name": "Expenses",
+            "Description": "Track your daily and monthly expenses.",
             "Icon": "\uE8C1",
             "Category": {
                 "Title": "Bills",
@@ -103,24 +97,22 @@
             },
             "Tags": [
                 {
-                    "Title": "utilities",
+                    "Title": "monthly bills",
                     "Color": "#1E90FF"
                 },
                 {
-                    "Title": "electricity",
+                    "Title": "utilities",
                     "Color": "#FFFF00"
                 }
             ],
             "Tasks": [
                 {
                     "Title": "Electricity Bill",
-                    "IsCompleted": false,
-                    "Amount": 60.0
+                    "IsCompleted": false
                 },
                 {
                     "Title": "Water Bill",
-                    "IsCompleted": false,
-                    "Amount": 30.0
+                    "IsCompleted": false
                 }
             ]
         }
