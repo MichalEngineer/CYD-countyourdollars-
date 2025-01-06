@@ -20,28 +20,45 @@ namespace CYD.Pages
         }
 
         // £adowanie wydatków u¿ytkownika
-        private async void LoadSpendings()
+        private async Task LoadSpendings()
         {
-            // Pobieramy e-mail u¿ytkownika
-            var userEmail = await _authService.GetCurrentUserEmailAsync();
-            if (string.IsNullOrEmpty(userEmail) || userEmail == "User not logged in")
+            // Pokazanie wskaŸnika ³adowania
+            LoadingIndicator.IsRunning = true;
+            LoadingIndicator.IsVisible = true;
+
+            // Sprawdzamy, czy u¿ytkownik jest zalogowany
+            var isLoggedIn = await _authService.IsUserLoggedInAsync();
+            if (!isLoggedIn)
             {
                 await DisplayAlert("Error", "User not logged in.", "OK");
                 return;
             }
 
-            try
+            // Pobieramy UID u¿ytkownika
+            var userEmail = await _authService.GetCurrentUserEmailAsync();
+            if (string.IsNullOrEmpty(userEmail) || userEmail == "User not logged in")
             {
-                // Pobieramy wydatki u¿ytkownika
-                var spendings = await _firebaseService.GetSpendingsAsync(userEmail);
+                await DisplayAlert("Error", "Failed to retrieve user email.", "OK");
+                return;
+            }
 
-                // Ustawiamy dane jako Ÿród³o ListView
-                SpendingsListView.ItemsSource = spendings;
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Error", $"Failed to load spendings: {ex.Message}", "OK");
-            }
+            var sanitizedEmail = userEmail.Replace("@", "-at-").Replace(".", "-dot-");
+            var spendings = await _firebaseService.GetSpendingsAsync(sanitizedEmail);
+
+            // Wyœwietlenie danych w ListView
+            SpendingsListView.ItemsSource = spendings;
+            SpendingsListView.IsVisible = true;
+
+            // Ukrycie wskaŸnika ³adowania
+            LoadingIndicator.IsRunning = false;
+            LoadingIndicator.IsVisible = false;
+        }
+
+        // Obs³uga klikniêcia przycisku "Refresh"
+        private async void OnRefreshButtonClicked(object sender, EventArgs e)
+        {
+            // £adowanie danych po klikniêciu
+            await LoadSpendings();
         }
     }
 }

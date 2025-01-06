@@ -28,20 +28,28 @@ namespace CYD.Pages
                 return;
             }
 
-            // Sprawdzamy, czy kategoria i kwota s¹ prawid³owe
-            if (!string.IsNullOrEmpty(CategoryEntry.Text) && decimal.TryParse(AmountEntry.Text, out var amount))
+            // Pobieramy wybran¹ kategoriê
+            var selectedCategory = CategoryPicker.SelectedItem as string;
+            if (string.IsNullOrEmpty(selectedCategory))
+            {
+                await DisplayAlert("Error", "Please select a category.", "OK");
+                return;
+            }
+
+            // Sprawdzamy, czy kwota jest prawid³owa
+            if (decimal.TryParse(AmountEntry.Text, out var amount))
             {
                 // Zapisujemy wydatek do Firebase z przypisanym e-mailem u¿ytkownika
-                await _firebaseService.SaveSpendingAsync(CategoryEntry.Text, amount, userEmail);
+                await _firebaseService.SaveSpendingAsync(selectedCategory, amount, userEmail);
                 await DisplayAlert("Success", "Spending saved successfully!", "OK");
 
                 // Czyœcimy pola po zapisaniu
-                CategoryEntry.Text = string.Empty;
+                CategoryPicker.SelectedIndex = -1; // Resetujemy wybór kategorii
                 AmountEntry.Text = string.Empty;
             }
             else
             {
-                await DisplayAlert("Error", "Please enter valid data.", "OK");
+                await DisplayAlert("Error", "Please enter a valid amount.", "OK");
             }
         }
     }

@@ -1,14 +1,21 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CYD.Pages.AddSpendingPage"
-             Title="Add Spending">
+             x:Class="CYD.Pages.AddSpendingPage">
+    <StackLayout Padding="10">
+        <Label Text="Choose category:" FontSize="Medium" />
+        <Picker x:Name="CategoryPicker" Title="Select category">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Bills</x:String>
+                    <x:String>Transport</x:String>
+                    <x:String>Food</x:String>
+                    <x:String>Entertainment</x:String>
+                    <x:String>Other</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
 
-    <StackLayout Padding="20">
-        <Label Text="Category" FontSize="20" />
-        <Entry x:Name="CategoryEntry" Placeholder="Enter category" />
-
-        <Label Text="Amount" FontSize="20" />
+        <Label Text="Amount:" FontSize="Medium" />
         <Entry x:Name="AmountEntry" Placeholder="Enter amount" Keyboard="Numeric" />
 
         <Button Text="Save Spending" Clicked="OnSaveSpendingClicked" />

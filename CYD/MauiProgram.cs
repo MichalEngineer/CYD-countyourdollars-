@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using CYD.Pages;
 using Syncfusion.Maui.Toolkit.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Controls.Hosting;
 namespace CYD
 {
