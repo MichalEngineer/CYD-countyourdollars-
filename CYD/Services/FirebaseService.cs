@@ -35,14 +35,20 @@ namespace CYD.Services
 
 
         // Pobranie wydatków użytkownika na podstawie e-maila
-        public async Task<List<Spending>> GetSpendingsAsync(string email)
+        public async Task<List<Spending>> GetSpendingsAsync(string userEmail)
         {
+            // Zamieniamy e-mail użytkownika na format bezpieczny dla Firebase
+            var sanitizedEmail = userEmail.Replace("@", "-at-").Replace(".", "-dot-");
+
+            // Ścieżka do wydatków użytkownika
+            var refPath = $"users/{sanitizedEmail}/spendings";
+
+            // Pobieramy dane z Firebase
             var spendings = await _firebaseClient
-                .Child("users") // Zmieniamy ścieżkę na użytkowników
-                .Child(email) // Używamy e-maila jako klucza
-                .Child("spendings") // Pobieramy wydatki przypisane do tego e-maila
+                .Child(refPath)
                 .OnceAsync<Spending>();
 
+            // Konwertujemy wyniki na listę wydatków
             var spendingList = new List<Spending>();
             foreach (var item in spendings)
             {
@@ -51,6 +57,7 @@ namespace CYD.Services
 
             return spendingList;
         }
+
     }
 
     public class Spending

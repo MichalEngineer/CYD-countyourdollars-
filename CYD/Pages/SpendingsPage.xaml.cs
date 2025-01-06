@@ -20,7 +20,7 @@ namespace CYD.Pages
         }
 
         // £adowanie wydatków u¿ytkownika
-        private async Task LoadSpendings()
+        private async void LoadSpendings()
         {
             // Pobieramy e-mail u¿ytkownika
             var userEmail = await _authService.GetCurrentUserEmailAsync();
@@ -30,9 +30,18 @@ namespace CYD.Pages
                 return;
             }
 
-            // Pobieramy wydatki u¿ytkownika na podstawie e-maila
-            var spendings = await _firebaseService.GetSpendingsAsync(userEmail);
-            SpendingsListView.ItemsSource = spendings;
+            try
+            {
+                // Pobieramy wydatki u¿ytkownika
+                var spendings = await _firebaseService.GetSpendingsAsync(userEmail);
+
+                // Ustawiamy dane jako Ÿród³o ListView
+                SpendingsListView.ItemsSource = spendings;
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Failed to load spendings: {ex.Message}", "OK");
+            }
         }
     }
 }
