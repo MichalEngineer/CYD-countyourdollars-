@@ -1,4 +1,5 @@
 ﻿using CYD.Services;
+using Plugin.Fingerprint;
 
 namespace CYD
 {
@@ -16,15 +17,24 @@ namespace CYD
             _currencyLayerService = new CurrencyLayerService();
 
             // Ładowanie danych przed wyświetleniem LoginPage
-            LoadInitialDataAsync();
+            LoadInitialDataAsync(); // Usuń przypisanie wyniku do zmiennej
 
-            _navigationPage = new NavigationPage(new LoginPage())
+            // Tworzenie LoginPage z CrossFingerprint.Current
+            var loginPage = new LoginPage(CrossFingerprint.Current);
+
+            _navigationPage = new NavigationPage(loginPage)
             {
                 BarBackgroundColor = Colors.Transparent,
                 BarTextColor = Colors.Transparent
             };
+
             SubscribeToLoginSuccessful();
+
+            // Ustawienie MainPage na NavigationPage z LoginPage
+            MainPage = _navigationPage;
         }
+
+
 
         protected override Window CreateWindow(IActivationState? activationState)
         {

@@ -2,6 +2,7 @@
 using CommunityToolkit.Maui.Core;
 using Font = Microsoft.Maui.Font;
 using Firebase.Auth;
+using Plugin.Fingerprint;
 namespace CYD
 {
     public partial class AppShell : Shell
@@ -55,7 +56,7 @@ namespace CYD
             await _authService.LogoutAsync();
 
             // Przejście do ekranu logowania po wylogowaniu
-            Application.Current.MainPage = new NavigationPage(new LoginPage());
+            Application.Current.MainPage = new NavigationPage(new LoginPage(CrossFingerprint.Current));
             SecureStorage.Remove("user_email");
             SecureStorage.Remove("user_uid");
 

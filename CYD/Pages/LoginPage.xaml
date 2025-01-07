@@ -136,6 +136,16 @@
                 </StackLayout>
 
                 <Button 
+                         Text="Fingerprint" 
+                         Clicked="Button_Clicked_2"
+                         BackgroundColor="DeepSkyBlue"
+                         TextColor="White" 
+                         FontAttributes="Bold" 
+                         CornerRadius="30" 
+                         WidthRequest="200" 
+                         Margin="0,15,0,0" />
+
+                <Button 
                         Text="Login" 
                         Clicked="OnLoginButtonClicked"
                         BackgroundColor="LawnGreen"

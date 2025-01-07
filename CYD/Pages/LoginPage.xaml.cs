@@ -2,17 +2,21 @@ namespace CYD.Pages;
 
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Storage;
+using Plugin.Fingerprint.Abstractions;
 using System;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 public partial class LoginPage : ContentPage
 {
+    private readonly IFingerprint fingerprint;
     private readonly FirebaseAuthService _authService;
     public static event EventHandler LoginSuccessful;
-    public LoginPage()
+    public LoginPage(IFingerprint fingerprint)
     {
         InitializeComponent();
         _authService = new FirebaseAuthService();
+        this.fingerprint = fingerprint;
     }
 
     private async void OnLoginButtonClicked(object sender, EventArgs e)
@@ -22,7 +26,7 @@ public partial class LoginPage : ContentPage
 
         if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
         {
-            await DisplayAlert("Erroe", "Email and password cannot be empty.", "OK");
+            await DisplayAlert("Error", "Email and password cannot be empty.", "OK");
             return;
         }
 
@@ -71,6 +75,21 @@ public partial class LoginPage : ContentPage
     private async void OnForgotPasswordTapped(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new ForgotPassword());
+    }
+
+    private async void Button_Clicked_2(object sender, EventArgs e)
+    {
+        var request = new AuthenticationRequestConfiguration("Logowanie", "Za pomoc¹ odcisku palca");
+        var result = await fingerprint.AuthenticateAsync(request);
+        if(result.Authenticated)
+        {
+            await DisplayAlert("Success", "Login succesful!", "OK");
+            LoginSuccessful?.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            await DisplayAlert("Error", "Login failed.", "OK");
+        }
     }
 
 }
