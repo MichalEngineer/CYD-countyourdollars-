@@ -1,0 +1,168 @@
+\doxysection{Dokumentacja klasy CYD.\+App\+Shell}
+\hypertarget{class_c_y_d_1_1_app_shell}{}\label{class_c_y_d_1_1_app_shell}\index{CYD.AppShell@{CYD.AppShell}}
+
+
+Główna klasa powłoki aplikacji.  
+
+
+Diagram dziedziczenia dla CYD.\+App\+Shell\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_c_y_d_1_1_app_shell}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_y_d_1_1_app_shell_a096e653585dfbcfbe3d2b80bbb1d9c69}{App\+Shell}} ()
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \doxylink{class_c_y_d_1_1_app_shell}{App\+Shell}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static async Task \mbox{\hyperlink{class_c_y_d_1_1_app_shell_a00b02f64c4c38bf5d3e9c6371a6c6204}{Display\+Snackbar\+Async}} (string message)
+\begin{DoxyCompactList}\small\item\em Wyświetla komunikat Snackbar. \end{DoxyCompactList}\item 
+static async Task \mbox{\hyperlink{class_c_y_d_1_1_app_shell_a17f868999752d064b0ad368314be7dbe}{Display\+Toast\+Async}} (string message)
+\begin{DoxyCompactList}\small\item\em Wyświetla komunikat Toast. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_y_d_1_1_app_shell_a1a01a5d432a055162261ce3b4c24dfcb}{Sf\+Segmented\+Control\+\_\+\+Selection\+Changed}} (object sender, Syncfusion.\+Maui.\+Toolkit.\+Segmented\+Control.\+Selection\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługuje zmianę motywu aplikacji. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_c_y_d_1_1_app_shell_af122b94be835ef5416717864e758e526}{On\+Logout\+Button\+Clicked}} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługuje kliknięcie przycisku wylogowania. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_firebase_auth_service}{Firebase\+Auth\+Service}} \mbox{\hyperlink{class_c_y_d_1_1_app_shell_aa86da43dc3bb15ee9da2ae42191b2679}{\+\_\+auth\+Service}}
+\begin{DoxyCompactList}\small\item\em Serwis uwierzytelniania Firebase. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Główna klasa powłoki aplikacji. 
+
+Zarządza interfejsem użytkownika oraz operacjami związanymi z motywem, komunikatami i wylogowaniem użytkownika. 
+
+Definicja w linii \mbox{\hyperlink{_app_shell_8xaml_8cs_source_l00016}{16}} pliku \mbox{\hyperlink{_app_shell_8xaml_8cs_source}{App\+Shell.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\Hypertarget{class_c_y_d_1_1_app_shell_a096e653585dfbcfbe3d2b80bbb1d9c69}\index{CYD.AppShell@{CYD.AppShell}!AppShell@{AppShell}}
+\index{AppShell@{AppShell}!CYD.AppShell@{CYD.AppShell}}
+\doxysubsubsection{\texorpdfstring{AppShell()}{AppShell()}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_app_shell_a096e653585dfbcfbe3d2b80bbb1d9c69} 
+CYD.\+App\+Shell.\+App\+Shell (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Konstruktor klasy \doxylink{class_c_y_d_1_1_app_shell}{App\+Shell}. 
+
+Inicjalizuje komponenty, serwis uwierzytelniania oraz ustawia motyw aplikacji. 
+
+Definicja w linii \mbox{\hyperlink{_app_shell_8xaml_8cs_source_l00025}{25}} pliku \mbox{\hyperlink{_app_shell_8xaml_8cs_source}{App\+Shell.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_c_y_d_1_1_app_shell_a00b02f64c4c38bf5d3e9c6371a6c6204}\index{CYD.AppShell@{CYD.AppShell}!DisplaySnackbarAsync@{DisplaySnackbarAsync}}
+\index{DisplaySnackbarAsync@{DisplaySnackbarAsync}!CYD.AppShell@{CYD.AppShell}}
+\doxysubsubsection{\texorpdfstring{DisplaySnackbarAsync()}{DisplaySnackbarAsync()}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_app_shell_a00b02f64c4c38bf5d3e9c6371a6c6204} 
+static async Task CYD.\+App\+Shell.\+Display\+Snackbar\+Async (\begin{DoxyParamCaption}\item[{string}]{message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Wyświetla komunikat Snackbar. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em message} & Treść komunikatu do wyświetlenia.\\
+\hline
+\end{DoxyParams}
+Tworzy i wyświetla snackbar z określonymi opcjami wizualnymi. 
+
+Definicja w linii \mbox{\hyperlink{_app_shell_8xaml_8cs_source_l00039}{39}} pliku \mbox{\hyperlink{_app_shell_8xaml_8cs_source}{App\+Shell.\+xaml.\+cs}}.
+
+\Hypertarget{class_c_y_d_1_1_app_shell_a17f868999752d064b0ad368314be7dbe}\index{CYD.AppShell@{CYD.AppShell}!DisplayToastAsync@{DisplayToastAsync}}
+\index{DisplayToastAsync@{DisplayToastAsync}!CYD.AppShell@{CYD.AppShell}}
+\doxysubsubsection{\texorpdfstring{DisplayToastAsync()}{DisplayToastAsync()}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_app_shell_a17f868999752d064b0ad368314be7dbe} 
+static async Task CYD.\+App\+Shell.\+Display\+Toast\+Async (\begin{DoxyParamCaption}\item[{string}]{message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Wyświetla komunikat Toast. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em message} & Treść komunikatu do wyświetlenia.\\
+\hline
+\end{DoxyParams}
+Wyświetla komunikat typu Toast, z pominięciem na platformie Windows. 
+
+Definicja w linii \mbox{\hyperlink{_app_shell_8xaml_8cs_source_l00063}{63}} pliku \mbox{\hyperlink{_app_shell_8xaml_8cs_source}{App\+Shell.\+xaml.\+cs}}.
+
+\Hypertarget{class_c_y_d_1_1_app_shell_af122b94be835ef5416717864e758e526}\index{CYD.AppShell@{CYD.AppShell}!OnLogoutButtonClicked@{OnLogoutButtonClicked}}
+\index{OnLogoutButtonClicked@{OnLogoutButtonClicked}!CYD.AppShell@{CYD.AppShell}}
+\doxysubsubsection{\texorpdfstring{OnLogoutButtonClicked()}{OnLogoutButtonClicked()}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_app_shell_af122b94be835ef5416717864e758e526} 
+async void CYD.\+App\+Shell.\+On\+Logout\+Button\+Clicked (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Obsługuje kliknięcie przycisku wylogowania. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em sender} & Obiekt wywołujący zdarzenie. \\
+\hline
+{\em e} & Argumenty zdarzenia. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{_app_shell_8xaml_8cs_source_l00089}{89}} pliku \mbox{\hyperlink{_app_shell_8xaml_8cs_source}{App\+Shell.\+xaml.\+cs}}.
+
+\Hypertarget{class_c_y_d_1_1_app_shell_a1a01a5d432a055162261ce3b4c24dfcb}\index{CYD.AppShell@{CYD.AppShell}!SfSegmentedControl\_SelectionChanged@{SfSegmentedControl\_SelectionChanged}}
+\index{SfSegmentedControl\_SelectionChanged@{SfSegmentedControl\_SelectionChanged}!CYD.AppShell@{CYD.AppShell}}
+\doxysubsubsection{\texorpdfstring{SfSegmentedControl\_SelectionChanged()}{SfSegmentedControl\_SelectionChanged()}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_app_shell_a1a01a5d432a055162261ce3b4c24dfcb} 
+void CYD.\+App\+Shell.\+Sf\+Segmented\+Control\+\_\+\+Selection\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Syncfusion.\+Maui.\+Toolkit.\+Segmented\+Control.\+Selection\+Changed\+Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Obsługuje zmianę motywu aplikacji. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em sender} & Obiekt wywołujący zdarzenie. \\
+\hline
+{\em e} & Argumenty zdarzenia. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{_app_shell_8xaml_8cs_source_l00079}{79}} pliku \mbox{\hyperlink{_app_shell_8xaml_8cs_source}{App\+Shell.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Dokumentacja atrybutów składowych}
+\Hypertarget{class_c_y_d_1_1_app_shell_aa86da43dc3bb15ee9da2ae42191b2679}\index{CYD.AppShell@{CYD.AppShell}!\_authService@{\_authService}}
+\index{\_authService@{\_authService}!CYD.AppShell@{CYD.AppShell}}
+\doxysubsubsection{\texorpdfstring{\_authService}{\_authService}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_app_shell_aa86da43dc3bb15ee9da2ae42191b2679} 
+\mbox{\hyperlink{class_firebase_auth_service}{Firebase\+Auth\+Service}} CYD.\+App\+Shell.\+\_\+auth\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Serwis uwierzytelniania Firebase. 
+
+
+
+Definicja w linii \mbox{\hyperlink{_app_shell_8xaml_8cs_source_l00018}{18}} pliku \mbox{\hyperlink{_app_shell_8xaml_8cs_source}{App\+Shell.\+xaml.\+cs}}.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+CYD/\mbox{\hyperlink{_app_shell_8xaml_8cs}{App\+Shell.\+xaml.\+cs}}\end{DoxyCompactItemize}

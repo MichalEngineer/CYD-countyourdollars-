@@ -1,95 +1,137 @@
-namespace CYD.Pages;
-
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Storage;
-using Plugin.Fingerprint.Abstractions;
-using System;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-
-public partial class LoginPage : ContentPage
+namespace CYD.Pages
 {
-    private readonly IFingerprint fingerprint;
-    private readonly FirebaseAuthService _authService;
-    public static event EventHandler LoginSuccessful;
-    public LoginPage(IFingerprint fingerprint)
-    {
-        InitializeComponent();
-        _authService = new FirebaseAuthService();
-        this.fingerprint = fingerprint;
-    }
+    using Microsoft.Maui.Controls;
+    using Microsoft.Maui.Storage;
+    using Plugin.Fingerprint.Abstractions;
+    using System;
+    using System.Net.Http.Headers;
+    using System.Threading.Tasks;
 
-    private async void OnLoginButtonClicked(object sender, EventArgs e)
+    /**
+     * Reprezentuje stronê logowania w aplikacji. Strona ta obs³uguje uwierzytelnianie u¿ytkownika zarówno przez 
+     * tradycyjne logowanie (e-mail/has³o), jak i uwierzytelnianie za pomoc¹ odcisku palca. Komunikuje siê z us³ug¹
+     * uwierzytelniania Firebase, aby zalogowaæ u¿ytkownika i obs³ugiwaæ b³êdy zwi¹zane z uwierzytelnianiem.
+     */
+    public partial class LoginPage : ContentPage
     {
-        string email = EmailEntry.Text;
-        string password = PasswordEntry.Text;
+        private readonly IFingerprint fingerprint;
+        private readonly FirebaseAuthService _authService;
 
-        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+        /**
+         * Zdarzenie wyzwalane, gdy logowanie siê powiedzie.
+         */
+        public static event EventHandler LoginSuccessful;
+
+        /**
+         * Inicjalizuje now¹ instancjê klasy LoginPage.
+         * @param fingerprint Instancja us³ugi uwierzytelniania odciskiem palca.
+         */
+        public LoginPage(IFingerprint fingerprint)
         {
-            await DisplayAlert("Error", "Email and password cannot be empty.", "OK");
-            return;
+            InitializeComponent();
+            _authService = new FirebaseAuthService();
+            this.fingerprint = fingerprint;
         }
 
-        try
+        /**
+         * Obs³uguje klikniêcie przycisku logowania. Próbujê uwierzytelniæ u¿ytkownika za pomoc¹ podanego e-maila i has³a.
+         * Jeœli logowanie jest udane, u¿ytkownik zostaje zalogowany, a odpowiednie zdarzenie jest wyzwalane.
+         * Jeœli logowanie siê nie uda, wyœwietlany jest odpowiedni komunikat o b³êdzie.
+         * 
+         * @param sender Obiekt, który wyzwoli³ to zdarzenie.
+         * @param e Argumenty zdarzenia.
+         */
+        private async void OnLoginButtonClicked(object sender, EventArgs e)
         {
-            // Próba zalogowania u¿ytkownika
-            var result = await _authService.SignInWithEmailAndPasswordAsync(email, password);
+            string email = EmailEntry.Text;
+            string password = PasswordEntry.Text;
 
-            if (!string.IsNullOrEmpty(result) && result.StartsWith("Error"))
+            // Sprawdzamy, czy e-mail lub has³o s¹ puste
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password)) // <--- Sprawdza, czy e-mail lub has³o s¹ puste
             {
-                // Obs³uga konkretnych b³êdów autoryzacji
-                if (result.Contains("INVALID_LOGIN_CREDENTIALS"))
+                await DisplayAlert("B³¹d", "E-mail i has³o nie mog¹ byæ puste.", "OK");
+                return;
+            }
+
+            try
+            {
+                // Próbujemy zalogowaæ u¿ytkownika za pomoc¹ e-maila i has³a
+                var result = await _authService.SignInWithEmailAndPasswordAsync(email, password);
+
+                if (!string.IsNullOrEmpty(result) && result.StartsWith("Error")) // <--- Sprawdza, czy wynik zawiera b³¹d
                 {
-                    await DisplayAlert("Error", "Wrong email or password.", "OK");
-                }
-                else if (result.Contains("INVALID_EMAIL"))
-                {
-                    await DisplayAlert("Error", "Wrong email.", "OK");
+                    // Obs³ugujemy konkretne b³êdy uwierzytelniania
+                    if (result.Contains("INVALID_LOGIN_CREDENTIALS")) // <--- Sprawdza, czy b³¹d wynika z nieprawid³owych danych logowania
+                    {
+                        await DisplayAlert("B³¹d", "Nieprawid³owy e-mail lub has³o.", "OK");
+                    }
+                    else if (result.Contains("INVALID_EMAIL")) // <--- Sprawdza, czy b³¹d wynika z nieprawid³owego e-maila
+                    {
+                        await DisplayAlert("B³¹d", "Nieprawid³owy e-mail.", "OK");
+                    }
+                    else
+                    {
+                        await DisplayAlert("B³¹d", "Nieznany b³¹d. Spróbuj ponownie.", "OK");
+                    }
                 }
                 else
                 {
-                    await DisplayAlert("Error", "Unknown mistake. Try again.", "OK");
+                    // Logowanie siê powiod³o
+                    await DisplayAlert("Sukces", "Logowanie udane!", "OK");
+                    LoginSuccessful?.Invoke(this, EventArgs.Empty); // <--- Wyzwala zdarzenie sukcesu logowania
                 }
+            }
+            catch (Exception ex)
+            {
+                // Przechowujemy e-mail u¿ytkownika w bezpiecznej pamiêci i obs³ugujemy b³êdy ogólne
+                await SecureStorage.SetAsync("user_email", email);
+                await DisplayAlert("B³¹d", $"B³¹d: {ex.Message}", "OK");
+            }
+        }
+
+        /**
+         * Obs³uguje klikniêcie linku "Zarejestruj siê". Nawigujemy do strony rejestracji.
+         * 
+         * @param sender Obiekt, który wyzwoli³ to zdarzenie.
+         * @param e Argumenty zdarzenia.
+         */
+        private async void OnSignUpTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SignUpPage());
+        }
+
+        /**
+         * Obs³uguje klikniêcie linku "Zapomnia³eœ has³a?". Nawigujemy do strony resetowania has³a.
+         * 
+         * @param sender Obiekt, który wyzwoli³ to zdarzenie.
+         * @param e Argumenty zdarzenia.
+         */
+        private async void OnForgotPasswordTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ForgotPassword());
+        }
+
+        /**
+         * Obs³uguje klikniêcie przycisku uwierzytelniania za pomoc¹ odcisku palca. Próbuje uwierzytelniæ u¿ytkownika za pomoc¹ 
+         * czytnika odcisków palców. Jeœli uwierzytelnienie jest udane, u¿ytkownik jest zalogowany, a odpowiednie zdarzenie jest wyzwalane.
+         * 
+         * @param sender Obiekt, który wyzwoli³ to zdarzenie.
+         * @param e Argumenty zdarzenia.
+         */
+        private async void Button_Clicked_2(object sender, EventArgs e)
+        {
+            var request = new AuthenticationRequestConfiguration("Logowanie", "Za pomoc¹ odcisku palca");
+            var result = await fingerprint.AuthenticateAsync(request);
+
+            if (result.Authenticated) // <--- Sprawdza, czy uwierzytelnienie odciskiem palca jest udane
+            {
+                await DisplayAlert("Sukces", "Logowanie udane!", "OK");
+                LoginSuccessful?.Invoke(this, EventArgs.Empty); // <--- Wyzwala zdarzenie sukcesu logowania
             }
             else
             {
-
-                // Logowanie powiod³o siê
-                await DisplayAlert("Success", "Login succesful!", "OK");
-                LoginSuccessful?.Invoke(this, EventArgs.Empty);// Przeniesienie do strony g³ównej
+                await DisplayAlert("B³¹d", "Logowanie nieudane.", "OK");
             }
         }
-        catch (Exception ex)
-        {
-            await SecureStorage.SetAsync("user_email", email);
-            // Obs³uga ogólnych b³êdów
-            await DisplayAlert("Error", $"Mistake: {ex.Message}", "OK");
-        }
     }
-    
-    private async void OnSignUpTapped(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new SignUpPage());
-    }
-
-    private async void OnForgotPasswordTapped(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new ForgotPassword());
-    }
-
-    private async void Button_Clicked_2(object sender, EventArgs e)
-    {
-        var request = new AuthenticationRequestConfiguration("Logowanie", "Za pomoc¹ odcisku palca");
-        var result = await fingerprint.AuthenticateAsync(request);
-        if(result.Authenticated)
-        {
-            await DisplayAlert("Success", "Login succesful!", "OK");
-            LoginSuccessful?.Invoke(this, EventArgs.Empty);
-        }
-        else
-        {
-            await DisplayAlert("Error", "Login failed.", "OK");
-        }
-    }
-
 }

@@ -1,0 +1,172 @@
+\doxysection{Dokumentacja klasy CYD.\+App}
+\hypertarget{class_c_y_d_1_1_app}{}\label{class_c_y_d_1_1_app}\index{CYD.App@{CYD.App}}
+
+
+Główna klasa aplikacji zarządzająca nawigacją i danymi.  
+
+
+Diagram dziedziczenia dla CYD.\+App\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_c_y_d_1_1_app}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_y_d_1_1_app_a5860c47bcc010a2f8abaa520ef3a9c19}{App}} ()
+\begin{DoxyCompactList}\small\item\em Konstruktor aplikacji. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Metody chronione}
+\begin{DoxyCompactItemize}
+\item 
+override Window \mbox{\hyperlink{class_c_y_d_1_1_app_a426b6306ab77ac0e31be7dfa8de4de55}{Create\+Window}} (IActivation\+State? activation\+State)
+\begin{DoxyCompactList}\small\item\em Tworzy okno aplikacji. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Właściwości}
+\begin{DoxyCompactItemize}
+\item 
+static Dictionary$<$ string, decimal $>$ \mbox{\hyperlink{class_c_y_d_1_1_app_a85a173453d1b9cf53ad853c9e3d6c0a7}{Currency\+Rates}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Aktualne kursy walut. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_y_d_1_1_app_a5950b03290d8c3aae7ececc96d8bf21d}{Subscribe\+To\+Login\+Successful}} ()
+\begin{DoxyCompactList}\small\item\em Subskrybuje zdarzenie pomyślnego logowania. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_c_y_d_1_1_app_af67239fc0151dd8c977583b74fcdabcf}{Load\+Initial\+Data\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Ładuje początkowe dane walutowe asynchronicznie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+Navigation\+Page \mbox{\hyperlink{class_c_y_d_1_1_app_ab4d8ca43a5f35813e13a20cfb7a4663f}{\+\_\+navigation\+Page}}
+\begin{DoxyCompactList}\small\item\em Główna strona nawigacyjna aplikacji. \end{DoxyCompactList}\item 
+readonly \mbox{\hyperlink{class_c_y_d_1_1_services_1_1_currency_layer_service}{Currency\+Layer\+Service}} \mbox{\hyperlink{class_c_y_d_1_1_app_a2c02466b9d19530415615801e44cc7bf}{\+\_\+currency\+Layer\+Service}}
+\begin{DoxyCompactList}\small\item\em Serwis do pobierania danych o walutach. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Główna klasa aplikacji zarządzająca nawigacją i danymi. 
+
+Definicja w linii \mbox{\hyperlink{_app_8xaml_8cs_source_l00010}{10}} pliku \mbox{\hyperlink{_app_8xaml_8cs_source}{App.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\Hypertarget{class_c_y_d_1_1_app_a5860c47bcc010a2f8abaa520ef3a9c19}\index{CYD.App@{CYD.App}!App@{App}}
+\index{App@{App}!CYD.App@{CYD.App}}
+\doxysubsubsection{\texorpdfstring{App()}{App()}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_app_a5860c47bcc010a2f8abaa520ef3a9c19} 
+CYD.\+App.\+App (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Konstruktor aplikacji. 
+
+Inicjalizuje komponenty, ładuje dane walutowe i ustawia stronę logowania. 
+
+Definicja w linii \mbox{\hyperlink{_app_8xaml_8cs_source_l00022}{22}} pliku \mbox{\hyperlink{_app_8xaml_8cs_source}{App.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_c_y_d_1_1_app_a426b6306ab77ac0e31be7dfa8de4de55}\index{CYD.App@{CYD.App}!CreateWindow@{CreateWindow}}
+\index{CreateWindow@{CreateWindow}!CYD.App@{CYD.App}}
+\doxysubsubsection{\texorpdfstring{CreateWindow()}{CreateWindow()}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_app_a426b6306ab77ac0e31be7dfa8de4de55} 
+override Window CYD.\+App.\+Create\+Window (\begin{DoxyParamCaption}\item[{IActivation\+State?}]{activation\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Tworzy okno aplikacji. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em activation\+State} & Stan aktywacji aplikacji. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Zwraca główne okno aplikacji. 
+\end{DoxyReturn}
+
+
+Definicja w linii \mbox{\hyperlink{_app_8xaml_8cs_source_l00045}{45}} pliku \mbox{\hyperlink{_app_8xaml_8cs_source}{App.\+xaml.\+cs}}.
+
+\Hypertarget{class_c_y_d_1_1_app_af67239fc0151dd8c977583b74fcdabcf}\index{CYD.App@{CYD.App}!LoadInitialDataAsync@{LoadInitialDataAsync}}
+\index{LoadInitialDataAsync@{LoadInitialDataAsync}!CYD.App@{CYD.App}}
+\doxysubsubsection{\texorpdfstring{LoadInitialDataAsync()}{LoadInitialDataAsync()}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_app_af67239fc0151dd8c977583b74fcdabcf} 
+async void CYD.\+App.\+Load\+Initial\+Data\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Ładuje początkowe dane walutowe asynchronicznie. 
+
+
+
+Definicja w linii \mbox{\hyperlink{_app_8xaml_8cs_source_l00064}{64}} pliku \mbox{\hyperlink{_app_8xaml_8cs_source}{App.\+xaml.\+cs}}.
+
+\Hypertarget{class_c_y_d_1_1_app_a5950b03290d8c3aae7ececc96d8bf21d}\index{CYD.App@{CYD.App}!SubscribeToLoginSuccessful@{SubscribeToLoginSuccessful}}
+\index{SubscribeToLoginSuccessful@{SubscribeToLoginSuccessful}!CYD.App@{CYD.App}}
+\doxysubsubsection{\texorpdfstring{SubscribeToLoginSuccessful()}{SubscribeToLoginSuccessful()}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_app_a5950b03290d8c3aae7ececc96d8bf21d} 
+void CYD.\+App.\+Subscribe\+To\+Login\+Successful (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Subskrybuje zdarzenie pomyślnego logowania. 
+
+
+
+Definicja w linii \mbox{\hyperlink{_app_8xaml_8cs_source_l00053}{53}} pliku \mbox{\hyperlink{_app_8xaml_8cs_source}{App.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Dokumentacja atrybutów składowych}
+\Hypertarget{class_c_y_d_1_1_app_a2c02466b9d19530415615801e44cc7bf}\index{CYD.App@{CYD.App}!\_currencyLayerService@{\_currencyLayerService}}
+\index{\_currencyLayerService@{\_currencyLayerService}!CYD.App@{CYD.App}}
+\doxysubsubsection{\texorpdfstring{\_currencyLayerService}{\_currencyLayerService}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_app_a2c02466b9d19530415615801e44cc7bf} 
+readonly \mbox{\hyperlink{class_c_y_d_1_1_services_1_1_currency_layer_service}{Currency\+Layer\+Service}} CYD.\+App.\+\_\+currency\+Layer\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Serwis do pobierania danych o walutach. 
+
+
+
+Definicja w linii \mbox{\hyperlink{_app_8xaml_8cs_source_l00013}{13}} pliku \mbox{\hyperlink{_app_8xaml_8cs_source}{App.\+xaml.\+cs}}.
+
+\Hypertarget{class_c_y_d_1_1_app_ab4d8ca43a5f35813e13a20cfb7a4663f}\index{CYD.App@{CYD.App}!\_navigationPage@{\_navigationPage}}
+\index{\_navigationPage@{\_navigationPage}!CYD.App@{CYD.App}}
+\doxysubsubsection{\texorpdfstring{\_navigationPage}{\_navigationPage}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_app_ab4d8ca43a5f35813e13a20cfb7a4663f} 
+Navigation\+Page CYD.\+App.\+\_\+navigation\+Page\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Główna strona nawigacyjna aplikacji. 
+
+
+
+Definicja w linii \mbox{\hyperlink{_app_8xaml_8cs_source_l00012}{12}} pliku \mbox{\hyperlink{_app_8xaml_8cs_source}{App.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Dokumentacja właściwości}
+\Hypertarget{class_c_y_d_1_1_app_a85a173453d1b9cf53ad853c9e3d6c0a7}\index{CYD.App@{CYD.App}!CurrencyRates@{CurrencyRates}}
+\index{CurrencyRates@{CurrencyRates}!CYD.App@{CYD.App}}
+\doxysubsubsection{\texorpdfstring{CurrencyRates}{CurrencyRates}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_app_a85a173453d1b9cf53ad853c9e3d6c0a7} 
+Dictionary$<$string, decimal$>$ CYD.\+App.\+Currency\+Rates\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Aktualne kursy walut. 
+
+
+
+Definicja w linii \mbox{\hyperlink{_app_8xaml_8cs_source_l00015}{15}} pliku \mbox{\hyperlink{_app_8xaml_8cs_source}{App.\+xaml.\+cs}}.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+CYD/\mbox{\hyperlink{_app_8xaml_8cs}{App.\+xaml.\+cs}}\end{DoxyCompactItemize}

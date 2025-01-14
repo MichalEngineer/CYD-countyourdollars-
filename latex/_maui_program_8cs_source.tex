@@ -1,0 +1,57 @@
+\doxysection{Maui\+Program.\+cs}
+\hypertarget{_maui_program_8cs_source}{}\label{_maui_program_8cs_source}\index{CYD/MauiProgram.cs@{CYD/MauiProgram.cs}}
+\mbox{\hyperlink{_maui_program_8cs}{Idź do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }CommunityToolkit.Maui;\ \textcolor{comment}{//\ <-\/-\/-\/\ Użycie\ narzędzi\ z\ CommunityToolkit\ dla\ aplikacji\ Maui}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }Microsoft.Extensions.Logging;\ \textcolor{comment}{//\ <-\/-\/-\/\ Użycie\ przestrzeni\ nazw\ do\ logowania}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespace_c_y_d_1_1_pages}{CYD.Pages}};\ \textcolor{comment}{//\ <-\/-\/-\/\ Użycie\ przestrzeni\ nazw\ aplikacji\ (strony\ aplikacji)}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }Syncfusion.Maui.Toolkit.Hosting;\ \textcolor{comment}{//\ <-\/-\/-\/\ Użycie\ narzędzi\ Syncfusion\ dla\ Maui}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }Microsoft.Maui.Controls.Hosting;\ \textcolor{comment}{//\ <-\/-\/-\/\ Użycie\ przestrzeni\ nazw\ do\ tworzenia\ aplikacji\ Maui}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00007}00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_c_y_d}{CYD}}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00010}\mbox{\hyperlink{class_c_y_d_1_1_maui_program}{00010}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_c_y_d_1_1_maui_program}{MauiProgram}}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00013}\mbox{\hyperlink{class_c_y_d_1_1_maui_program_af0960e653bdf9e8e39f22f6086f12e7b}{00013}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ MauiApp\ \mbox{\hyperlink{class_c_y_d_1_1_maui_program_af0960e653bdf9e8e39f22f6086f12e7b}{CreateMauiApp}}()}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00014}00014\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ var\ builder\ =\ MauiApp.CreateBuilder();\ \textcolor{comment}{//\ <-\/-\/-\/\ Tworzymy\ buildera\ aplikacji\ Maui}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ builder}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .UseMauiApp<\mbox{\hyperlink{class_c_y_d_1_1_app}{App}}>()\ \textcolor{comment}{//\ <-\/-\/-\/\ Ustawienie\ głównej\ aplikacji\ (klasy\ App)\ dla\ aplikacji\ Maui}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .UseMauiCommunityToolkit()\ \textcolor{comment}{//\ <-\/-\/-\/\ Dodanie\ narzędzi\ z\ CommunityToolkit\ do\ aplikacji\ Maui}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .ConfigureSyncfusionToolkit()\ \textcolor{comment}{//\ <-\/-\/-\/\ Dodanie\ narzędzi\ Syncfusion\ do\ aplikacji\ Maui}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .ConfigureMauiHandlers(handlers\ =>\ \textcolor{comment}{//\ <-\/-\/-\/\ Konfiguracja\ niestandardowych\ handlerów\ (brak\ ich\ w\ tej\ konfiguracji)}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \})}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .ConfigureFonts(fonts\ =>\ \textcolor{comment}{//\ <-\/-\/-\/\ Konfiguracja\ czcionek,\ które\ będą\ dostępne\ w\ aplikacji}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fonts.AddFont(\textcolor{stringliteral}{"{}OpenSans-\/Regular.ttf"{}},\ \textcolor{stringliteral}{"{}OpenSansRegular"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Dodanie\ czcionki\ OpenSans-\/Regular}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fonts.AddFont(\textcolor{stringliteral}{"{}OpenSans-\/Semibold.ttf"{}},\ \textcolor{stringliteral}{"{}OpenSansSemibold"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Dodanie\ czcionki\ OpenSans-\/Semibold}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fonts.AddFont(\textcolor{stringliteral}{"{}SegoeUI-\/Semibold.ttf"{}},\ \textcolor{stringliteral}{"{}SegoeSemibold"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Dodanie\ czcionki\ SegoeUI-\/Semibold}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fonts.AddFont(\textcolor{stringliteral}{"{}FluentSystemIcons-\/Regular.ttf"{}},\ FluentUI.FontFamily);\ \textcolor{comment}{//\ <-\/-\/-\/\ Dodanie\ czcionki\ FluentSystemIcons-\/Regular}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00032}00032\ \textcolor{preprocessor}{\#if\ DEBUG\ }\textcolor{comment}{//\ <-\/-\/-\/\ Tylko\ w\ trybie\ debugowania}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ builder.Logging.AddDebug();\ \textcolor{comment}{//\ <-\/-\/-\/\ Dodanie\ logowania\ debugowego}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ builder.Services.AddLogging(configure\ =>\ configure.AddDebug());\ \textcolor{comment}{//\ <-\/-\/-\/\ Konfiguracja\ logowania\ debugowego}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00035}00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ builder.Services.AddSingleton<ProjectRepository>();\ \textcolor{comment}{//\ <-\/-\/-\/\ Rejestracja\ repozytorium\ projektów\ jako\ singleton}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ builder.Services.AddSingleton<TaskRepository>();\ \textcolor{comment}{//\ <-\/-\/-\/\ Rejestracja\ repozytorium\ zadań\ jako\ singleton}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ builder.Services.AddSingleton<CategoryRepository>();\ \textcolor{comment}{//\ <-\/-\/-\/\ Rejestracja\ repozytorium\ kategorii\ jako\ singleton}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ builder.Services.AddSingleton<TagRepository>();\ \textcolor{comment}{//\ <-\/-\/-\/\ Rejestracja\ repozytorium\ tagów\ jako\ singleton}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ builder.Services.AddSingleton<SeedDataService>();\ \textcolor{comment}{//\ <-\/-\/-\/\ Rejestracja\ usługi\ do\ inicjalizacji\ danych\ jako\ singleton}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ builder.Services.AddSingleton<ModalErrorHandler>();\ \textcolor{comment}{//\ <-\/-\/-\/\ Rejestracja\ usługi\ obsługi\ błędów\ modalnych\ jako\ singleton}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ builder.Services.AddSingleton<MainPageModel>();\ \textcolor{comment}{//\ <-\/-\/-\/\ Rejestracja\ modelu\ strony\ głównej\ jako\ singleton}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ builder.Services.AddSingleton<ProjectListPageModel>();\ \textcolor{comment}{//\ <-\/-\/-\/\ Rejestracja\ modelu\ strony\ listy\ projektów\ jako\ singleton}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ builder.Services.AddSingleton<ManageMetaPageModel>();\ \textcolor{comment}{//\ <-\/-\/-\/\ Rejestracja\ modelu\ strony\ zarządzania\ metadanymi\ jako\ singleton}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ builder.Services.AddTransientWithShellRoute<ProjectDetailPage,\ ProjectDetailPageModel>(\textcolor{stringliteral}{"{}project"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Rejestracja\ strony\ szczegółów\ projektu\ z\ trasą}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ builder.Services.AddTransientWithShellRoute<TaskDetailPage,\ TaskDetailPageModel>(\textcolor{stringliteral}{"{}task"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Rejestracja\ strony\ szczegółów\ zadania\ z\ trasą}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ builder.Build();\ \textcolor{comment}{//\ <-\/-\/-\/\ Budowanie\ i\ zwrócenie\ aplikacji\ Maui}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_maui_program_8cs_source_l00055}00055\ \}}
+
+\end{DoxyCode}

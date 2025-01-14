@@ -1,0 +1,73 @@
+\doxysection{Currency\+Page.\+xaml.\+cs}
+\hypertarget{_currency_page_8xaml_8cs_source}{}\label{_currency_page_8xaml_8cs_source}\index{CYD/Pages/CurrencyPage.xaml.cs@{CYD/Pages/CurrencyPage.xaml.cs}}
+\mbox{\hyperlink{_currency_page_8xaml_8cs}{Id≈∫ do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }Microsoft.Maui.Controls;\ \textcolor{comment}{//\ <-\/-\/-\/\ Uøycie\ przestrzeni\ nazw\ do\ kontrolki\ w\ aplikacji\ Maui}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }System;\ \textcolor{comment}{//\ <-\/-\/-\/\ Uøycie\ przestrzeni\ nazw\ do\ ogÛlnych\ operacji\ systemowych}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }System.Collections.Generic;\ \textcolor{comment}{//\ <-\/-\/-\/\ Uøycie\ przestrzeni\ nazw\ do\ operacji\ na\ kolekcjach}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }System.Linq;\ \textcolor{comment}{//\ <-\/-\/-\/\ Uøycie\ przestrzeni\ nazw\ do\ operacji\ na\ kolekcjach}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }System.Threading.Tasks;\ \textcolor{comment}{//\ <-\/-\/-\/\ Uøycie\ przestrzeni\ nazw\ do\ operacji\ asynchronicznych}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00007}00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_c_y_d_1_1_pages}{CYD.Pages}}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00010}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_page}{00010}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_page}{CurrencyPage}}\ :\ ContentPage}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00012}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_page_a86af76e2bf6a9e01509b4f77ed168c0f}{00012}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ List<CurrencyRate>\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_page_a86af76e2bf6a9e01509b4f77ed168c0f}{CurrencyRates}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ \textcolor{comment}{//\ <-\/-\/-\/\ Lista\ obiektÛw CurrencyRate,\ zawierajπca\ kursy\ walut}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00015}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_page_aaed713f0fa82e3ff9926fec699ce2ce2}{00015}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_page_aaed713f0fa82e3ff9926fec699ce2ce2}{CurrencyPage}}()}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00016}00016\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ InitializeComponent();\ \textcolor{comment}{//\ <-\/-\/-\/\ Inicjalizacja\ komponentÛw strony}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ BindingContext\ =\ \textcolor{keyword}{this};\ \textcolor{comment}{//\ <-\/-\/-\/\ Ustawienie\ bieøπcej\ strony\ jako\ kontekst\ powiπzania}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Asynchronicznie\ za≥aduj\ dane\ walut}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_page_ac9d51b3ac95d7d5c4e268e6508e07389}{LoadCurrencyRatesAsync}}();\ \textcolor{comment}{//\ <-\/-\/-\/\ Wywo≥anie\ asynchronicznej\ metody\ wczytania\ kursÛw walut}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00022}00022\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00025}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_page_ac9d51b3ac95d7d5c4e268e6508e07389}{00025}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_page_ac9d51b3ac95d7d5c4e268e6508e07389}{LoadCurrencyRatesAsync}}()}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Uøywamy\ CurrencyLayerService\ do\ pobrania\ walut}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ service\ =\ \textcolor{keyword}{new}\ Services.CurrencyLayerService();\ \textcolor{comment}{//\ <-\/-\/-\/\ Inicjalizacja\ serwisu\ do\ pobierania\ kursÛw walut}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ rates\ =\ await\ service.GetTopCurrenciesAsync(\textcolor{stringliteral}{"{}USD"{}},\ 5);\ \textcolor{comment}{//\ <-\/-\/-\/\ Pobierz\ tylko\ 5\ najlepszych\ walut\ wzglÍdem\ USD}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rates\ !=\ \textcolor{keyword}{null}\ \&\&\ rates.Any())\ \textcolor{comment}{//\ <-\/-\/-\/\ Sprawdzamy,\ czy\ dane\ zosta≥y\ poprawnie\ pobrane}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_page_adb9c7f3158e09b17d8f8c4451aea1c21}{LoadCurrencyRates}}(rates);\ \textcolor{comment}{//\ <-\/-\/-\/\ Za≥aduj\ dane\ walut\ do\ widoku}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ DisplayAlert(\textcolor{stringliteral}{"{}Error"{}},\ \textcolor{stringliteral}{"{}No\ currency\ rates\ available."{}},\ \textcolor{stringliteral}{"{}OK"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Wyúwietlamy\ komunikat\ o\ braku\ dostÍpnych\ danych}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Console.WriteLine(\$\textcolor{stringliteral}{"{}Error\ loading\ currency\ rates:\ \{ex.Message\}"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Zapisujemy\ b≥πd\ w\ konsoli}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ DisplayAlert(\textcolor{stringliteral}{"{}Error"{}},\ \textcolor{stringliteral}{"{}Failed\ to\ load\ currency\ rates.\ Please\ try\ again\ later."{}},\ \textcolor{stringliteral}{"{}OK"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Wyúwietlamy\ komunikat\ o\ b≥Ídzie}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00050}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_page_adb9c7f3158e09b17d8f8c4451aea1c21}{00050}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_page_adb9c7f3158e09b17d8f8c4451aea1c21}{LoadCurrencyRates}}(Dictionary<string,\ decimal>\ rates)}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Przekszta≥camy\ dane\ w\ listÍ do\ powiπzania}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_page_a86af76e2bf6a9e01509b4f77ed168c0f}{CurrencyRates}}\ =\ rates.Select(rate\ =>\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_rate}{CurrencyRate}}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Key\ =\ rate.Key,\ \textcolor{comment}{//\ <-\/-\/-\/\ Przypisanie\ klucza\ (nazwa\ waluty)}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Value\ =\ rate.Value\ \textcolor{comment}{//\ <-\/-\/-\/\ Przypisanie\ wartoúci\ (kurs\ waluty)}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}).ToList();}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Powiadomienie\ o\ zmianie\ danych}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ OnPropertyChanged(nameof(\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_page_a86af76e2bf6a9e01509b4f77ed168c0f}{CurrencyRates}}));\ \textcolor{comment}{//\ <-\/-\/-\/\ Powiadomienie\ widoku\ o\ zmianie\ danych}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00065}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_rate}{00065}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_rate}{CurrencyRate}}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00066}00066\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00067}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_rate_a673c47c4d7bc28e06fd70a1dcdb4eeb8}{00067}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_rate_a673c47c4d7bc28e06fd70a1dcdb4eeb8}{Key}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ \textcolor{comment}{//\ <-\/-\/-\/\ Klucz\ waluty\ (np.\ "{}USD"{})}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00068}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_rate_a0acff34b1eee72e6423dfd9ce1523c3c}{00068}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ decimal\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_rate_a0acff34b1eee72e6423dfd9ce1523c3c}{Value}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ \textcolor{comment}{//\ <-\/-\/-\/\ WartoúÊ kursu\ waluty}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00071}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_rate_a950a4a9ea53980f615b8558cbd24c2df}{00071}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_currency_rate_a950a4a9ea53980f615b8558cbd24c2df}{DisplayValue}}\ =>\ \$\textcolor{stringliteral}{"{}\{Key\}:\ \{Value:F2\}"{}};\ \textcolor{comment}{//\ <-\/-\/-\/\ Formatowanie\ do\ wyúwietlenia\ jako\ "{}USD:\ 1.23"{}}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_currency_page_8xaml_8cs_source_l00073}00073\ \}}
+
+\end{DoxyCode}

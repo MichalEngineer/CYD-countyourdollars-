@@ -1,0 +1,75 @@
+\doxysection{Firebase\+Service.\+cs}
+\hypertarget{_firebase_service_8cs_source}{}\label{_firebase_service_8cs_source}\index{CYD/Services/FirebaseService.cs@{CYD/Services/FirebaseService.cs}}
+\mbox{\hyperlink{_firebase_service_8cs}{Idź do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }Firebase.Database;\ \textcolor{comment}{//\ <-\/-\/-\/\ Użycie\ Firebase.Database\ do\ komunikacji\ z\ bazą\ danych\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }Firebase.Database.Query;\ \textcolor{comment}{//\ <-\/-\/-\/\ Użycie\ zapytań\ do\ bazy\ danych\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }System.Collections.Generic;\ \textcolor{comment}{//\ <-\/-\/-\/\ Użycie\ przestrzeni\ nazw\ do\ pracy\ z\ kolekcjami,\ takimi\ jak\ lista}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }System.Threading.Tasks;\ \textcolor{comment}{//\ <-\/-\/-\/\ Użycie\ przestrzeni\ nazw\ do\ operacji\ asynchronicznych}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00006}00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_c_y_d_1_1_services}{CYD.Services}}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00008}\mbox{\hyperlink{class_c_y_d_1_1_services_1_1_firebase_database_service}{00008}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_c_y_d_1_1_services_1_1_firebase_database_service}{FirebaseDatabaseService}}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00009}00009\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00010}\mbox{\hyperlink{class_c_y_d_1_1_services_1_1_firebase_database_service_aed829c87e274d975437875ad2d916e3e}{00010}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ readonly\ FirebaseClient\ \mbox{\hyperlink{class_c_y_d_1_1_services_1_1_firebase_database_service_aed829c87e274d975437875ad2d916e3e}{\_firebaseClient}};\ \textcolor{comment}{//\ <-\/-\/-\/\ Inicjalizacja\ klienta\ Firebase,\ który\ będzie\ służył\ do\ komunikacji\ z\ bazą\ danych}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Konstruktor\ inicjalizujący\ klienta\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00013}\mbox{\hyperlink{class_c_y_d_1_1_services_1_1_firebase_database_service_ace5ebc1e4c831ace658e9aecc57af554}{00013}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_c_y_d_1_1_services_1_1_firebase_database_service_ace5ebc1e4c831ace658e9aecc57af554}{FirebaseDatabaseService}}()}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00014}00014\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_y_d_1_1_services_1_1_firebase_database_service_aed829c87e274d975437875ad2d916e3e}{\_firebaseClient}}\ =\ \textcolor{keyword}{new}\ FirebaseClient(\textcolor{stringliteral}{"{}https://countyourdollars-\/default-\/rtdb.europe-\/west1.firebasedatabase.app/"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Tworzenie\ klienta\ Firebase\ z\ podanym\ URL\ bazy\ danych}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00016}00016\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Zapisanie\ wydatku}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Zaktualizowana\ metoda\ SaveSpendingAsync}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00020}\mbox{\hyperlink{class_c_y_d_1_1_services_1_1_firebase_database_service_a464d313f5a746925a7307783576cb27a}{00020}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ async\ Task\ \mbox{\hyperlink{class_c_y_d_1_1_services_1_1_firebase_database_service_a464d313f5a746925a7307783576cb27a}{SaveSpendingAsync}}(\textcolor{keywordtype}{string}\ category,\ decimal\ amount,\ \textcolor{keywordtype}{string}\ userEmail)}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Zamieniamy\ specjalne\ znaki\ w\ e-\/mailu\ na\ bezpieczne\ dla\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ var\ sanitizedEmail\ =\ userEmail.Replace(\textcolor{stringliteral}{"{}@"{}},\ \textcolor{stringliteral}{"{}-\/at-\/"{}}).Replace(\textcolor{stringliteral}{"{}."{}},\ \textcolor{stringliteral}{"{}-\/dot-\/"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Bezpieczne\ przekształcenie\ e-\/maila\ użytkownika\ na\ format\ odpowiedni\ dla\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tworzymy\ obiekt\ wydatku}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ var\ spending\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_c_y_d_1_1_services_1_1_spending}{Spending}}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Category\ =\ category,\ \textcolor{comment}{//\ <-\/-\/-\/\ Przypisanie\ kategorii\ wydatku}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Amount\ =\ amount\ \textcolor{comment}{//\ <-\/-\/-\/\ Przypisanie\ kwoty\ wydatku}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tworzymy\ ścieżkę\ do\ zapisania\ wydatku\ w\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ var\ refPath\ =\ \$\textcolor{stringliteral}{"{}users/\{sanitizedEmail\}/spendings"{}};\ \textcolor{comment}{//\ <-\/-\/-\/\ Tworzenie\ ścieżki\ do\ zapisania\ danych\ wydatku\ w\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ await\ \mbox{\hyperlink{class_c_y_d_1_1_services_1_1_firebase_database_service_aed829c87e274d975437875ad2d916e3e}{\_firebaseClient}}.Child(refPath).PostAsync(spending);\ \textcolor{comment}{//\ <-\/-\/-\/\ Zapisanie\ obiektu\ wydatku\ w\ Firebase\ w\ odpowiedniej\ ścieżce}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pobranie\ wydatków\ użytkownika\ na\ podstawie\ e-\/maila}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00038}\mbox{\hyperlink{class_c_y_d_1_1_services_1_1_firebase_database_service_a475e373fad453d44a3b1e275e0db3925}{00038}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<List<Spending>>\ \mbox{\hyperlink{class_c_y_d_1_1_services_1_1_firebase_database_service_a475e373fad453d44a3b1e275e0db3925}{GetSpendingsAsync}}(\textcolor{keywordtype}{string}\ userEmail)}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Zamieniamy\ e-\/mail\ użytkownika\ na\ format\ bezpieczny\ dla\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ var\ sanitizedEmail\ =\ userEmail.Replace(\textcolor{stringliteral}{"{}@"{}},\ \textcolor{stringliteral}{"{}-\/at-\/"{}}).Replace(\textcolor{stringliteral}{"{}."{}},\ \textcolor{stringliteral}{"{}-\/dot-\/"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Bezpieczne\ przekształcenie\ e-\/maila\ użytkownika}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ścieżka\ do\ wydatków\ użytkownika}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ var\ refPath\ =\ \$\textcolor{stringliteral}{"{}users/\{sanitizedEmail\}/spendings"{}};\ \textcolor{comment}{//\ <-\/-\/-\/\ Ścieżka\ w\ bazie\ danych\ do\ wydatków\ użytkownika}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pobieramy\ dane\ z\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ var\ spendings\ =\ await\ \mbox{\hyperlink{class_c_y_d_1_1_services_1_1_firebase_database_service_aed829c87e274d975437875ad2d916e3e}{\_firebaseClient}}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Child(refPath)\ \textcolor{comment}{//\ <-\/-\/-\/\ Dostęp\ do\ węzła\ w\ bazie\ danych,\ gdzie\ przechowywane\ są\ wydatki}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .OnceAsync<\mbox{\hyperlink{class_c_y_d_1_1_services_1_1_spending}{Spending}}>();\ \textcolor{comment}{//\ <-\/-\/-\/\ Pobieranie\ wszystkich\ wydatków\ w\ postaci\ obiektów\ Spending}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Konwertujemy\ wyniki\ na\ listę\ wydatków}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ var\ spendingList\ =\ \textcolor{keyword}{new}\ List<Spending>();\ \textcolor{comment}{//\ <-\/-\/-\/\ Tworzymy\ pustą\ listę\ do\ przechowywania\ pobranych\ wydatków}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ item\ \textcolor{keywordflow}{in}\ spendings)}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spendingList.Add(item.Object);\ \textcolor{comment}{//\ <-\/-\/-\/\ Dodajemy\ każdy\ wydatek\ do\ listy}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ spendingList;\ \textcolor{comment}{//\ <-\/-\/-\/\ Zwracamy\ listę\ wydatków}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00063}00063\ \ \ \ \ \textcolor{comment}{//\ Klasa\ reprezentująca\ wydatek}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00064}\mbox{\hyperlink{class_c_y_d_1_1_services_1_1_spending}{00064}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_c_y_d_1_1_services_1_1_spending}{Spending}}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00065}00065\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00066}\mbox{\hyperlink{class_c_y_d_1_1_services_1_1_spending_a8f44f0517d145cee43ac9590f446500c}{00066}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_c_y_d_1_1_services_1_1_spending_a8f44f0517d145cee43ac9590f446500c}{Category}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ \textcolor{comment}{//\ <-\/-\/-\/\ Kategoria\ wydatku\ (np.\ "{}zakupy"{},\ "{}jedzenie"{})}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00067}\mbox{\hyperlink{class_c_y_d_1_1_services_1_1_spending_a5e9a8a01e21a87065b5c6d9fcd101e0b}{00067}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ decimal\ \mbox{\hyperlink{class_c_y_d_1_1_services_1_1_spending_a5e9a8a01e21a87065b5c6d9fcd101e0b}{Amount}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ \textcolor{comment}{//\ <-\/-\/-\/\ Kwota\ wydatku}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00068}00068\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_service_8cs_source_l00069}00069\ \}}
+
+\end{DoxyCode}
