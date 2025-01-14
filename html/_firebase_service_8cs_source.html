@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Aplikacja Mobilna CountYourDollars: Plik źródłowy CYD/Services/FirebaseService.cs</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Aplikacja Mobilna CountYourDollars<span id="projectnumber">&#160;1</span>
+   </div>
+   <div id="projectbrief">Aplikacja mobilna .net maui</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_39c5751b0c817a11e259a9f2a0897568.html">CYD</a></li><li class="navelem"><a class="el" href="dir_99d71424d978200f500dc228bba01fc1.html">Services</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">FirebaseService.cs</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_firebase_service_8cs.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span>Firebase.Database; <span class="comment">// &lt;--- Użycie Firebase.Database do komunikacji z bazą danych Firebase</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using </span>Firebase.Database.Query; <span class="comment">// &lt;--- Użycie zapytań do bazy danych Firebase</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using </span>System.Collections.Generic; <span class="comment">// &lt;--- Użycie przestrzeni nazw do pracy z kolekcjami, takimi jak lista</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">using </span>System.Threading.Tasks; <span class="comment">// &lt;--- Użycie przestrzeni nazw do operacji asynchronicznych</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_c_y_d_1_1_services.html">CYD.Services</a></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_c_y_d_1_1_services_1_1_firebase_database_service.html">    8</a></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_c_y_d_1_1_services_1_1_firebase_database_service.html">FirebaseDatabaseService</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#aed829c87e274d975437875ad2d916e3e">   10</a></span>        <span class="keyword">private</span> readonly FirebaseClient <a class="code hl_variable" href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#aed829c87e274d975437875ad2d916e3e">_firebaseClient</a>; <span class="comment">// &lt;--- Inicjalizacja klienta Firebase, który będzie służył do komunikacji z bazą danych</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="comment">// Konstruktor inicjalizujący klienta Firebase</span></div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#ace5ebc1e4c831ace658e9aecc57af554">   13</a></span>        <span class="keyword">public</span> <a class="code hl_function" href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#ace5ebc1e4c831ace658e9aecc57af554">FirebaseDatabaseService</a>()</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>            <a class="code hl_variable" href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#aed829c87e274d975437875ad2d916e3e">_firebaseClient</a> = <span class="keyword">new</span> FirebaseClient(<span class="stringliteral">&quot;https://countyourdollars-default-rtdb.europe-west1.firebasedatabase.app/&quot;</span>); <span class="comment">// &lt;--- Tworzenie klienta Firebase z podanym URL bazy danych</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        }</div>
+</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="comment">// Zapisanie wydatku</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="comment">// Zaktualizowana metoda SaveSpendingAsync</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#a464d313f5a746925a7307783576cb27a">   20</a></span>        <span class="keyword">public</span> async Task <a class="code hl_function" href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#a464d313f5a746925a7307783576cb27a">SaveSpendingAsync</a>(<span class="keywordtype">string</span> category, decimal amount, <span class="keywordtype">string</span> userEmail)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="comment">// Zamieniamy specjalne znaki w e-mailu na bezpieczne dla Firebase</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            var sanitizedEmail = userEmail.Replace(<span class="stringliteral">&quot;@&quot;</span>, <span class="stringliteral">&quot;-at-&quot;</span>).Replace(<span class="stringliteral">&quot;.&quot;</span>, <span class="stringliteral">&quot;-dot-&quot;</span>); <span class="comment">// &lt;--- Bezpieczne przekształcenie e-maila użytkownika na format odpowiedni dla Firebase</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <span class="comment">// Tworzymy obiekt wydatku</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            var spending = <span class="keyword">new</span> <a class="code hl_class" href="class_c_y_d_1_1_services_1_1_spending.html">Spending</a></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                Category = category, <span class="comment">// &lt;--- Przypisanie kategorii wydatku</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                Amount = amount <span class="comment">// &lt;--- Przypisanie kwoty wydatku</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            };</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="comment">// Tworzymy ścieżkę do zapisania wydatku w Firebase</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            var refPath = $<span class="stringliteral">&quot;users/{sanitizedEmail}/spendings&quot;</span>; <span class="comment">// &lt;--- Tworzenie ścieżki do zapisania danych wydatku w Firebase</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            await <a class="code hl_variable" href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#aed829c87e274d975437875ad2d916e3e">_firebaseClient</a>.Child(refPath).PostAsync(spending); <span class="comment">// &lt;--- Zapisanie obiektu wydatku w Firebase w odpowiedniej ścieżce</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        }</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="comment">// Pobranie wydatków użytkownika na podstawie e-maila</span></div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#a475e373fad453d44a3b1e275e0db3925">   38</a></span>        <span class="keyword">public</span> async Task&lt;List&lt;Spending&gt;&gt; <a class="code hl_function" href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#a475e373fad453d44a3b1e275e0db3925">GetSpendingsAsync</a>(<span class="keywordtype">string</span> userEmail)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="comment">// Zamieniamy e-mail użytkownika na format bezpieczny dla Firebase</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            var sanitizedEmail = userEmail.Replace(<span class="stringliteral">&quot;@&quot;</span>, <span class="stringliteral">&quot;-at-&quot;</span>).Replace(<span class="stringliteral">&quot;.&quot;</span>, <span class="stringliteral">&quot;-dot-&quot;</span>); <span class="comment">// &lt;--- Bezpieczne przekształcenie e-maila użytkownika</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <span class="comment">// Ścieżka do wydatków użytkownika</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            var refPath = $<span class="stringliteral">&quot;users/{sanitizedEmail}/spendings&quot;</span>; <span class="comment">// &lt;--- Ścieżka w bazie danych do wydatków użytkownika</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="comment">// Pobieramy dane z Firebase</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            var spendings = await <a class="code hl_variable" href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#aed829c87e274d975437875ad2d916e3e">_firebaseClient</a></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                .Child(refPath) <span class="comment">// &lt;--- Dostęp do węzła w bazie danych, gdzie przechowywane są wydatki</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                .OnceAsync&lt;<a class="code hl_class" href="class_c_y_d_1_1_services_1_1_spending.html">Spending</a>&gt;(); <span class="comment">// &lt;--- Pobieranie wszystkich wydatków w postaci obiektów Spending</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="comment">// Konwertujemy wyniki na listę wydatków</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            var spendingList = <span class="keyword">new</span> List&lt;Spending&gt;(); <span class="comment">// &lt;--- Tworzymy pustą listę do przechowywania pobranych wydatków</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keywordflow">foreach</span> (var item <span class="keywordflow">in</span> spendings)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                spendingList.Add(item.Object); <span class="comment">// &lt;--- Dodajemy każdy wydatek do listy</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordflow">return</span> spendingList; <span class="comment">// &lt;--- Zwracamy listę wydatków</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        }</div>
+</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="comment">// Klasa reprezentująca wydatek</span></div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="};">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_c_y_d_1_1_services_1_1_spending.html">   64</a></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="class_c_y_d_1_1_services_1_1_spending.html">Spending</a></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_c_y_d_1_1_services_1_1_spending.html#a8f44f0517d145cee43ac9590f446500c">   66</a></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code hl_property" href="class_c_y_d_1_1_services_1_1_spending.html#a8f44f0517d145cee43ac9590f446500c">Category</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; } <span class="comment">// &lt;--- Kategoria wydatku (np. &quot;zakupy&quot;, &quot;jedzenie&quot;)</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_c_y_d_1_1_services_1_1_spending.html#a5e9a8a01e21a87065b5c6d9fcd101e0b">   67</a></span>        <span class="keyword">public</span> decimal <a class="code hl_property" href="class_c_y_d_1_1_services_1_1_spending.html#a5e9a8a01e21a87065b5c6d9fcd101e0b">Amount</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; } <span class="comment">// &lt;--- Kwota wydatku</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
+<div class="ttc" id="aclass_c_y_d_1_1_services_1_1_firebase_database_service_html"><div class="ttname"><a href="class_c_y_d_1_1_services_1_1_firebase_database_service.html">CYD.Services.FirebaseDatabaseService</a></div><div class="ttdef"><b>Definicja</b> <a href="#l00008">FirebaseService.cs:9</a></div></div>
+<div class="ttc" id="aclass_c_y_d_1_1_services_1_1_firebase_database_service_html_a464d313f5a746925a7307783576cb27a"><div class="ttname"><a href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#a464d313f5a746925a7307783576cb27a">CYD.Services.FirebaseDatabaseService.SaveSpendingAsync</a></div><div class="ttdeci">async Task SaveSpendingAsync(string category, decimal amount, string userEmail)</div><div class="ttdef"><b>Definicja</b> <a href="#l00020">FirebaseService.cs:20</a></div></div>
+<div class="ttc" id="aclass_c_y_d_1_1_services_1_1_firebase_database_service_html_a475e373fad453d44a3b1e275e0db3925"><div class="ttname"><a href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#a475e373fad453d44a3b1e275e0db3925">CYD.Services.FirebaseDatabaseService.GetSpendingsAsync</a></div><div class="ttdeci">async Task&lt; List&lt; Spending &gt; &gt; GetSpendingsAsync(string userEmail)</div><div class="ttdef"><b>Definicja</b> <a href="#l00038">FirebaseService.cs:38</a></div></div>
+<div class="ttc" id="aclass_c_y_d_1_1_services_1_1_firebase_database_service_html_ace5ebc1e4c831ace658e9aecc57af554"><div class="ttname"><a href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#ace5ebc1e4c831ace658e9aecc57af554">CYD.Services.FirebaseDatabaseService.FirebaseDatabaseService</a></div><div class="ttdeci">FirebaseDatabaseService()</div><div class="ttdef"><b>Definicja</b> <a href="#l00013">FirebaseService.cs:13</a></div></div>
+<div class="ttc" id="aclass_c_y_d_1_1_services_1_1_firebase_database_service_html_aed829c87e274d975437875ad2d916e3e"><div class="ttname"><a href="class_c_y_d_1_1_services_1_1_firebase_database_service.html#aed829c87e274d975437875ad2d916e3e">CYD.Services.FirebaseDatabaseService._firebaseClient</a></div><div class="ttdeci">readonly FirebaseClient _firebaseClient</div><div class="ttdef"><b>Definicja</b> <a href="#l00010">FirebaseService.cs:10</a></div></div>
+<div class="ttc" id="aclass_c_y_d_1_1_services_1_1_spending_html"><div class="ttname"><a href="class_c_y_d_1_1_services_1_1_spending.html">CYD.Services.Spending</a></div><div class="ttdef"><b>Definicja</b> <a href="#l00064">FirebaseService.cs:65</a></div></div>
+<div class="ttc" id="aclass_c_y_d_1_1_services_1_1_spending_html_a5e9a8a01e21a87065b5c6d9fcd101e0b"><div class="ttname"><a href="class_c_y_d_1_1_services_1_1_spending.html#a5e9a8a01e21a87065b5c6d9fcd101e0b">CYD.Services.Spending.Amount</a></div><div class="ttdeci">decimal Amount</div><div class="ttdef"><b>Definicja</b> <a href="#l00067">FirebaseService.cs:67</a></div></div>
+<div class="ttc" id="aclass_c_y_d_1_1_services_1_1_spending_html_a8f44f0517d145cee43ac9590f446500c"><div class="ttname"><a href="class_c_y_d_1_1_services_1_1_spending.html#a8f44f0517d145cee43ac9590f446500c">CYD.Services.Spending.Category</a></div><div class="ttdeci">string Category</div><div class="ttdef"><b>Definicja</b> <a href="#l00066">FirebaseService.cs:66</a></div></div>
+<div class="ttc" id="anamespace_c_y_d_1_1_services_html"><div class="ttname"><a href="namespace_c_y_d_1_1_services.html">CYD.Services</a></div><div class="ttdef"><b>Definicja</b> <a href="_coin_gecko_service_8cs_source.html#l00008">CoinGeckoService.cs:9</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano za pomocą&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

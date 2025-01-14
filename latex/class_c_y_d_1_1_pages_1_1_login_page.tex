@@ -1,0 +1,181 @@
+\doxysection{Dokumentacja klasy CYD.\+Pages.\+Login\+Page}
+\hypertarget{class_c_y_d_1_1_pages_1_1_login_page}{}\label{class_c_y_d_1_1_pages_1_1_login_page}\index{CYD.Pages.LoginPage@{CYD.Pages.LoginPage}}
+Diagram dziedziczenia dla CYD.\+Pages.\+Login\+Page\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_c_y_d_1_1_pages_1_1_login_page}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_login_page_a0e6fa3cc2e3c506c49a899ccaf4976f4}{Login\+Page}} (IFingerprint \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_login_page_a2ade09873564a22f2f5043bf22a3d49e}{fingerprint}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Zdarzenia}
+\begin{DoxyCompactItemize}
+\item 
+static Event\+Handler \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_login_page_a3ddfa76f9fa83866dc2f05a500048b89}{Login\+Successful}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+async void \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_login_page_a3cd4bba729bd4e7534ce1654963d7505}{On\+Login\+Button\+Clicked}} (object sender, Event\+Args e)
+\item 
+async void \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_login_page_a59b0312648749ff9f5c6c8b9710e828f}{On\+Sign\+Up\+Tapped}} (object sender, Event\+Args e)
+\item 
+async void \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_login_page_a961fb03be2e1c50de81ce6b932c13f35}{On\+Forgot\+Password\+Tapped}} (object sender, Event\+Args e)
+\item 
+async void \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_login_page_acb266c0c5b95f18aa7f29ad8038edb3e}{Button\+\_\+\+Clicked\+\_\+2}} (object sender, Event\+Args e)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+readonly IFingerprint \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_login_page_a2ade09873564a22f2f5043bf22a3d49e}{fingerprint}}
+\item 
+readonly \mbox{\hyperlink{class_firebase_auth_service}{Firebase\+Auth\+Service}} \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_login_page_aa4a2952d92e3196f425f081450e1bfa3}{\+\_\+auth\+Service}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegÃ³Å‚owy}
+Reprezentuje stronê logowania w aplikacji. Strona ta obs³uguje uwierzytelnianie u¿ytkownika zarówno przez tradycyjne logowanie (e-\/mail/has³o), jak i uwierzytelnianie za pomoc¹ odcisku palca. Komunikuje siê z us³ug¹ uwierzytelniania Firebase, aby zalogowaæ u¿ytkownika i obs³ugiwaæ b³êdy zwi¹zane z uwierzytelnianiem. 
+
+Definicja w linii \mbox{\hyperlink{_login_page_8xaml_8cs_source_l00015}{15}} pliku \mbox{\hyperlink{_login_page_8xaml_8cs_source}{Login\+Page.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\Hypertarget{class_c_y_d_1_1_pages_1_1_login_page_a0e6fa3cc2e3c506c49a899ccaf4976f4}\index{CYD.Pages.LoginPage@{CYD.Pages.LoginPage}!LoginPage@{LoginPage}}
+\index{LoginPage@{LoginPage}!CYD.Pages.LoginPage@{CYD.Pages.LoginPage}}
+\doxysubsubsection{\texorpdfstring{LoginPage()}{LoginPage()}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_pages_1_1_login_page_a0e6fa3cc2e3c506c49a899ccaf4976f4} 
+CYD.\+Pages.\+Login\+Page.\+Login\+Page (\begin{DoxyParamCaption}\item[{IFingerprint}]{fingerprint}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Inicjalizuje now¹ instancjê klasy \doxylink{class_c_y_d_1_1_pages_1_1_login_page}{Login\+Page}. 
+\begin{DoxyParams}{Parametry}
+{\em fingerprint} & Instancja us³ugi uwierzytelniania odciskiem palca. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{_login_page_8xaml_8cs_source_l00029}{29}} pliku \mbox{\hyperlink{_login_page_8xaml_8cs_source}{Login\+Page.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Dokumentacja funkcji skÅ‚adowych}
+\Hypertarget{class_c_y_d_1_1_pages_1_1_login_page_acb266c0c5b95f18aa7f29ad8038edb3e}\index{CYD.Pages.LoginPage@{CYD.Pages.LoginPage}!Button\_Clicked\_2@{Button\_Clicked\_2}}
+\index{Button\_Clicked\_2@{Button\_Clicked\_2}!CYD.Pages.LoginPage@{CYD.Pages.LoginPage}}
+\doxysubsubsection{\texorpdfstring{Button\_Clicked\_2()}{Button\_Clicked\_2()}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_pages_1_1_login_page_acb266c0c5b95f18aa7f29ad8038edb3e} 
+async void CYD.\+Pages.\+Login\+Page.\+Button\+\_\+\+Clicked\+\_\+2 (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Obs³uguje klikniêcie przycisku uwierzytelniania za pomoc¹ odcisku palca. Próbuje uwierzytelniæ u¿ytkownika za pomoc¹ czytnika odcisków palców. Jeœli uwierzytelnienie jest udane, u¿ytkownik jest zalogowany, a odpowiednie zdarzenie jest wyzwalane.
+
+
+\begin{DoxyParams}{Parametry}
+{\em sender} & Obiekt, który wyzwoli³ to zdarzenie. \\
+\hline
+{\em e} & Argumenty zdarzenia. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{_login_page_8xaml_8cs_source_l00121}{121}} pliku \mbox{\hyperlink{_login_page_8xaml_8cs_source}{Login\+Page.\+xaml.\+cs}}.
+
+\Hypertarget{class_c_y_d_1_1_pages_1_1_login_page_a961fb03be2e1c50de81ce6b932c13f35}\index{CYD.Pages.LoginPage@{CYD.Pages.LoginPage}!OnForgotPasswordTapped@{OnForgotPasswordTapped}}
+\index{OnForgotPasswordTapped@{OnForgotPasswordTapped}!CYD.Pages.LoginPage@{CYD.Pages.LoginPage}}
+\doxysubsubsection{\texorpdfstring{OnForgotPasswordTapped()}{OnForgotPasswordTapped()}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_pages_1_1_login_page_a961fb03be2e1c50de81ce6b932c13f35} 
+async void CYD.\+Pages.\+Login\+Page.\+On\+Forgot\+Password\+Tapped (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Obs³uguje klikniêcie linku "{}\+Zapomnia³eœ has³a?"{}. Nawigujemy do strony resetowania has³a.
+
+
+\begin{DoxyParams}{Parametry}
+{\em sender} & Obiekt, który wyzwoli³ to zdarzenie. \\
+\hline
+{\em e} & Argumenty zdarzenia. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{_login_page_8xaml_8cs_source_l00109}{109}} pliku \mbox{\hyperlink{_login_page_8xaml_8cs_source}{Login\+Page.\+xaml.\+cs}}.
+
+\Hypertarget{class_c_y_d_1_1_pages_1_1_login_page_a3cd4bba729bd4e7534ce1654963d7505}\index{CYD.Pages.LoginPage@{CYD.Pages.LoginPage}!OnLoginButtonClicked@{OnLoginButtonClicked}}
+\index{OnLoginButtonClicked@{OnLoginButtonClicked}!CYD.Pages.LoginPage@{CYD.Pages.LoginPage}}
+\doxysubsubsection{\texorpdfstring{OnLoginButtonClicked()}{OnLoginButtonClicked()}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_pages_1_1_login_page_a3cd4bba729bd4e7534ce1654963d7505} 
+async void CYD.\+Pages.\+Login\+Page.\+On\+Login\+Button\+Clicked (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Obs³uguje klikniêcie przycisku logowania. Próbujê uwierzytelniæ u¿ytkownika za pomoc¹ podanego e-\/maila i has³a. Jeœli logowanie jest udane, u¿ytkownik zostaje zalogowany, a odpowiednie zdarzenie jest wyzwalane. Jeœli logowanie siê nie uda, wyœwietlany jest odpowiedni komunikat o b³êdzie.
+
+
+\begin{DoxyParams}{Parametry}
+{\em sender} & Obiekt, który wyzwoli³ to zdarzenie. \\
+\hline
+{\em e} & Argumenty zdarzenia. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{_login_page_8xaml_8cs_source_l00044}{44}} pliku \mbox{\hyperlink{_login_page_8xaml_8cs_source}{Login\+Page.\+xaml.\+cs}}.
+
+\Hypertarget{class_c_y_d_1_1_pages_1_1_login_page_a59b0312648749ff9f5c6c8b9710e828f}\index{CYD.Pages.LoginPage@{CYD.Pages.LoginPage}!OnSignUpTapped@{OnSignUpTapped}}
+\index{OnSignUpTapped@{OnSignUpTapped}!CYD.Pages.LoginPage@{CYD.Pages.LoginPage}}
+\doxysubsubsection{\texorpdfstring{OnSignUpTapped()}{OnSignUpTapped()}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_pages_1_1_login_page_a59b0312648749ff9f5c6c8b9710e828f} 
+async void CYD.\+Pages.\+Login\+Page.\+On\+Sign\+Up\+Tapped (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Obs³uguje klikniêcie linku "{}\+Zarejestruj siê"{}. Nawigujemy do strony rejestracji.
+
+
+\begin{DoxyParams}{Parametry}
+{\em sender} & Obiekt, który wyzwoli³ to zdarzenie. \\
+\hline
+{\em e} & Argumenty zdarzenia. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{_login_page_8xaml_8cs_source_l00098}{98}} pliku \mbox{\hyperlink{_login_page_8xaml_8cs_source}{Login\+Page.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Dokumentacja atrybutÃ³w skÅ‚adowych}
+\Hypertarget{class_c_y_d_1_1_pages_1_1_login_page_aa4a2952d92e3196f425f081450e1bfa3}\index{CYD.Pages.LoginPage@{CYD.Pages.LoginPage}!\_authService@{\_authService}}
+\index{\_authService@{\_authService}!CYD.Pages.LoginPage@{CYD.Pages.LoginPage}}
+\doxysubsubsection{\texorpdfstring{\_authService}{\_authService}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_pages_1_1_login_page_aa4a2952d92e3196f425f081450e1bfa3} 
+readonly \mbox{\hyperlink{class_firebase_auth_service}{Firebase\+Auth\+Service}} CYD.\+Pages.\+Login\+Page.\+\_\+auth\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definicja w linii \mbox{\hyperlink{_login_page_8xaml_8cs_source_l00018}{18}} pliku \mbox{\hyperlink{_login_page_8xaml_8cs_source}{Login\+Page.\+xaml.\+cs}}.
+
+\Hypertarget{class_c_y_d_1_1_pages_1_1_login_page_a2ade09873564a22f2f5043bf22a3d49e}\index{CYD.Pages.LoginPage@{CYD.Pages.LoginPage}!fingerprint@{fingerprint}}
+\index{fingerprint@{fingerprint}!CYD.Pages.LoginPage@{CYD.Pages.LoginPage}}
+\doxysubsubsection{\texorpdfstring{fingerprint}{fingerprint}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_pages_1_1_login_page_a2ade09873564a22f2f5043bf22a3d49e} 
+readonly IFingerprint CYD.\+Pages.\+Login\+Page.\+fingerprint\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definicja w linii \mbox{\hyperlink{_login_page_8xaml_8cs_source_l00017}{17}} pliku \mbox{\hyperlink{_login_page_8xaml_8cs_source}{Login\+Page.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Dokumentacja zdarzeÅ„}
+\Hypertarget{class_c_y_d_1_1_pages_1_1_login_page_a3ddfa76f9fa83866dc2f05a500048b89}\index{CYD.Pages.LoginPage@{CYD.Pages.LoginPage}!LoginSuccessful@{LoginSuccessful}}
+\index{LoginSuccessful@{LoginSuccessful}!CYD.Pages.LoginPage@{CYD.Pages.LoginPage}}
+\doxysubsubsection{\texorpdfstring{LoginSuccessful}{LoginSuccessful}}
+{\footnotesize\ttfamily \label{class_c_y_d_1_1_pages_1_1_login_page_a3ddfa76f9fa83866dc2f05a500048b89} 
+Event\+Handler CYD.\+Pages.\+Login\+Page.\+Login\+Successful\hspace{0.3cm}{\ttfamily [static]}}
+
+Zdarzenie wyzwalane, gdy logowanie siê powiedzie. 
+
+Definicja w linii \mbox{\hyperlink{_login_page_8xaml_8cs_source_l00023}{23}} pliku \mbox{\hyperlink{_login_page_8xaml_8cs_source}{Login\+Page.\+xaml.\+cs}}.
+
+
+
+Dokumentacja dla tej klasy zostaÅ‚a wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+CYD/\+Pages/\mbox{\hyperlink{_login_page_8xaml_8cs}{Login\+Page.\+xaml.\+cs}}\end{DoxyCompactItemize}

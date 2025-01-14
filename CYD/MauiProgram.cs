@@ -1,49 +1,55 @@
-﻿using CommunityToolkit.Maui;
-using Microsoft.Extensions.Logging;
-using CYD.Pages;
-using Syncfusion.Maui.Toolkit.Hosting;
-using Microsoft.Maui.Controls.Hosting;
+﻿using CommunityToolkit.Maui; // <--- Użycie narzędzi z CommunityToolkit dla aplikacji Maui
+using Microsoft.Extensions.Logging; // <--- Użycie przestrzeni nazw do logowania
+using CYD.Pages; // <--- Użycie przestrzeni nazw aplikacji (strony aplikacji)
+using Syncfusion.Maui.Toolkit.Hosting; // <--- Użycie narzędzi Syncfusion dla Maui
+using Microsoft.Maui.Controls.Hosting; // <--- Użycie przestrzeni nazw do tworzenia aplikacji Maui
+
 namespace CYD
 {
+    /** @brief Główna klasa konfigurująca Maui */
     public static class MauiProgram
     {
+        /** @brief Tworzenie aplikacji Maui */
         public static MauiApp CreateMauiApp()
         {
-            var builder = MauiApp.CreateBuilder();
+            var builder = MauiApp.CreateBuilder(); // <--- Tworzymy buildera aplikacji Maui
+
             builder
-                .UseMauiApp<App>()
-                .UseMauiCommunityToolkit()
-                .ConfigureSyncfusionToolkit()
-                .ConfigureMauiHandlers(handlers =>
+                .UseMauiApp<App>() // <--- Ustawienie głównej aplikacji (klasy App) dla aplikacji Maui
+                .UseMauiCommunityToolkit() // <--- Dodanie narzędzi z CommunityToolkit do aplikacji Maui
+                .ConfigureSyncfusionToolkit() // <--- Dodanie narzędzi Syncfusion do aplikacji Maui
+                .ConfigureMauiHandlers(handlers => // <--- Konfiguracja niestandardowych handlerów (brak ich w tej konfiguracji)
                 {
                 })
-                .ConfigureFonts(fonts =>
+                .ConfigureFonts(fonts => // <--- Konfiguracja czcionek, które będą dostępne w aplikacji
                 {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                    fonts.AddFont("SegoeUI-Semibold.ttf", "SegoeSemibold");
-                    fonts.AddFont("FluentSystemIcons-Regular.ttf", FluentUI.FontFamily);
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular"); // <--- Dodanie czcionki OpenSans-Regular
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold"); // <--- Dodanie czcionki OpenSans-Semibold
+                    fonts.AddFont("SegoeUI-Semibold.ttf", "SegoeSemibold"); // <--- Dodanie czcionki SegoeUI-Semibold
+                    fonts.AddFont("FluentSystemIcons-Regular.ttf", FluentUI.FontFamily); // <--- Dodanie czcionki FluentSystemIcons-Regular
                 });
 
-#if DEBUG
-    		builder.Logging.AddDebug();
-    		builder.Services.AddLogging(configure => configure.AddDebug());
+#if DEBUG // <--- Tylko w trybie debugowania
+            builder.Logging.AddDebug(); // <--- Dodanie logowania debugowego
+            builder.Services.AddLogging(configure => configure.AddDebug()); // <--- Konfiguracja logowania debugowego
 #endif
-            
-            builder.Services.AddSingleton<ProjectRepository>();
-            builder.Services.AddSingleton<TaskRepository>();
-            builder.Services.AddSingleton<CategoryRepository>();
-            builder.Services.AddSingleton<TagRepository>();
-            builder.Services.AddSingleton<SeedDataService>();
-            builder.Services.AddSingleton<ModalErrorHandler>();
-            builder.Services.AddSingleton<MainPageModel>();
-            builder.Services.AddSingleton<ProjectListPageModel>();
-            builder.Services.AddSingleton<ManageMetaPageModel>();
 
-            builder.Services.AddTransientWithShellRoute<ProjectDetailPage, ProjectDetailPageModel>("project");
-            builder.Services.AddTransientWithShellRoute<TaskDetailPage, TaskDetailPageModel>("task");
+            /** @brief Rejestracja usług w kontenerze DI (Dependency Injection) */
+            builder.Services.AddSingleton<ProjectRepository>(); // <--- Rejestracja repozytorium projektów jako singleton
+            builder.Services.AddSingleton<TaskRepository>(); // <--- Rejestracja repozytorium zadań jako singleton
+            builder.Services.AddSingleton<CategoryRepository>(); // <--- Rejestracja repozytorium kategorii jako singleton
+            builder.Services.AddSingleton<TagRepository>(); // <--- Rejestracja repozytorium tagów jako singleton
+            builder.Services.AddSingleton<SeedDataService>(); // <--- Rejestracja usługi do inicjalizacji danych jako singleton
+            builder.Services.AddSingleton<ModalErrorHandler>(); // <--- Rejestracja usługi obsługi błędów modalnych jako singleton
+            builder.Services.AddSingleton<MainPageModel>(); // <--- Rejestracja modelu strony głównej jako singleton
+            builder.Services.AddSingleton<ProjectListPageModel>(); // <--- Rejestracja modelu strony listy projektów jako singleton
+            builder.Services.AddSingleton<ManageMetaPageModel>(); // <--- Rejestracja modelu strony zarządzania metadanymi jako singleton
 
-            return builder.Build();
+            /** @brief Rejestracja stron z trasami (routing) jako transient (krótkoterminowe) */
+            builder.Services.AddTransientWithShellRoute<ProjectDetailPage, ProjectDetailPageModel>("project"); // <--- Rejestracja strony szczegółów projektu z trasą
+            builder.Services.AddTransientWithShellRoute<TaskDetailPage, TaskDetailPageModel>("task"); // <--- Rejestracja strony szczegółów zadania z trasą
+
+            return builder.Build(); // <--- Budowanie i zwrócenie aplikacji Maui
         }
     }
 }

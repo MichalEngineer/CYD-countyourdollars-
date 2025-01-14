@@ -1,0 +1,36 @@
+\doxysection{About\+Page.\+xaml.\+cs}
+\hypertarget{_about_page_8xaml_8cs_source}{}\label{_about_page_8xaml_8cs_source}\index{CYD/Pages/AboutPage.xaml.cs@{CYD/Pages/AboutPage.xaml.cs}}
+\mbox{\hyperlink{_about_page_8xaml_8cs}{Id≈∫ do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespace_c_y_d_1_1_services}{CYD.Services}};\ \textcolor{comment}{//\ <-\/-\/-\/\ Uøycie\ serwisu\ do\ pobierania\ danych\ o\ kryptowalutach}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00003}\mbox{\hyperlink{namespace_c_y_d_1_1_pages}{00003}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_c_y_d_1_1_pages}{CYD.Pages}}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00005}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page}{00005}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page}{AboutPage}}\ :\ ContentPage}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00006}00006\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00007}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page_a2c723e2efa9ab4cc1e578d8b2a29a90e}{00007}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \mbox{\hyperlink{class_c_y_d_1_1_services_1_1_coin_gecko_service}{CoinGeckoService}}\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page_a2c723e2efa9ab4cc1e578d8b2a29a90e}{\_coinGeckoService}};\ \textcolor{comment}{//\ <-\/-\/-\/\ Inicjalizacja\ zmiennej\ przechowujπcej\ us≥ugÍ CoinGeckoService,\ odpowiedzialnπ\ za\ pobieranie\ danych\ o\ kryptowalutach}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00009}00009\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Konstruktor\ strony\ AboutPage}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00010}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page_aacc0503bb165650baead91ca2809f865}{00010}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page_aacc0503bb165650baead91ca2809f865}{AboutPage}}()}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00011}00011\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ \ InitializeComponent();\ \textcolor{comment}{//\ <-\/-\/-\/\ Inicjalizacja\ komponentÛw strony\ (np.\ UI)}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page_a2c723e2efa9ab4cc1e578d8b2a29a90e}{\_coinGeckoService}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_c_y_d_1_1_services_1_1_coin_gecko_service}{CoinGeckoService}}();\ \textcolor{comment}{//\ <-\/-\/-\/\ Tworzenie\ instancji\ CoinGeckoService,\ ktÛra bÍdzie\ uøywana\ do\ pobierania\ danych}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ BindingContext\ =\ \textcolor{keyword}{this};\ \textcolor{comment}{//\ <-\/-\/-\/\ Ustawienie\ kontekstu\ powiπzania\ (BindingContext)\ na\ bieøπcy\ obiekt\ (AboutPage),\ umoøliwia\ bindowanie\ danych\ do\ UI}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page_a85975ad62654474462829a492da06078}{LoadDataAsync}}();\ \textcolor{comment}{//\ <-\/-\/-\/\ Wywo≥anie\ metody\ asynchronicznej\ w\ celu\ za≥adowania\ danych\ kryptowalut}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ W≥aúciwoúÊ przechowujπca\ listÍ kryptowalut}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00021}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page_a0ff4b88ead04b807598e786064d10b9a}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ List<CryptoCurrency>\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page_a0ff4b88ead04b807598e786064d10b9a}{Cryptocurrencies}}\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}\ =\ \textcolor{keyword}{new}();\ \textcolor{comment}{//\ <-\/-\/-\/\ Lista\ kryptowalut,\ ktÛra bÍdzie\ powiπzana\ z\ UI}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Asynchroniczna\ metoda\ do\ ≥adowania\ danych\ kryptowalut}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00024}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page_a85975ad62654474462829a492da06078}{00024}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page_a85975ad62654474462829a492da06078}{LoadDataAsync}}()}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page_a0ff4b88ead04b807598e786064d10b9a}{Cryptocurrencies}}\ =\ await\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page_a2c723e2efa9ab4cc1e578d8b2a29a90e}{\_coinGeckoService}}.\mbox{\hyperlink{class_c_y_d_1_1_services_1_1_coin_gecko_service_a793c5aa0fa0e1b4435e430931421b302}{GetTopCryptocurrenciesAsync}}();\ \textcolor{comment}{//\ <-\/-\/-\/\ Pobiera\ dane\ o\ kryptowalutach\ z\ serwisu\ CoinGecko}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ OnPropertyChanged(nameof(\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_about_page_a0ff4b88ead04b807598e786064d10b9a}{Cryptocurrencies}}));\ \textcolor{comment}{//\ <-\/-\/-\/\ Powiadamia\ o\ zmianie\ w≥aúciwoúci\ Cryptocurrencies,\ co\ odúwieøa\ UI}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_about_page_8xaml_8cs_source_l00030}00030\ \}}
+
+\end{DoxyCode}

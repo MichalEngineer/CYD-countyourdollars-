@@ -1,0 +1,71 @@
+\doxysection{Sign\+Up\+Page.\+xaml.\+cs}
+\hypertarget{_sign_up_page_8xaml_8cs_source}{}\label{_sign_up_page_8xaml_8cs_source}\index{CYD/Pages/SignUpPage.xaml.cs@{CYD/Pages/SignUpPage.xaml.cs}}
+\mbox{\hyperlink{_sign_up_page_8xaml_8cs}{Idź do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }Microsoft.Maui.Controls;}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00003}00003\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_c_y_d_1_1_pages}{CYD.Pages}};}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00009}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_sign_up_page}{00009}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_sign_up_page}{SignUpPage}}\ :\ ContentPage}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00011}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_sign_up_page_affded1b4f6cfc45d38eaa4429319224f}{00011}}\ \ \ \ \ \textcolor{keyword}{private}\ \mbox{\hyperlink{class_firebase_auth_service}{FirebaseAuthService}}\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_sign_up_page_affded1b4f6cfc45d38eaa4429319224f}{\_authService}};\ }
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00016}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_sign_up_page_a976b4c3bb4ef23fc164c94d1dd1f4104}{00016}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_sign_up_page_a976b4c3bb4ef23fc164c94d1dd1f4104}{SignUpPage}}()}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00017}00017\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00018}00018\ \ \ \ \ \ \ \ \ InitializeComponent();\ \textcolor{comment}{//<-\/-\/-\/\ Inicjalizacja\ komponentów\ UI.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_sign_up_page_affded1b4f6cfc45d38eaa4429319224f}{\_authService}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_firebase_auth_service}{FirebaseAuthService}}();\ \textcolor{comment}{//<-\/-\/-\/\ Inicjalizacja\ serwisu\ Firebase.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00020}00020\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00027}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_sign_up_page_a677eac1da533f06be8e1a3673186899c}{00027}}\ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_sign_up_page_a677eac1da533f06be8e1a3673186899c}{OnSignUpClicked}}(\textcolor{keywordtype}{object}\ sender,\ EventArgs\ e)}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00028}00028\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ firstName\ =\ FirstNameEntry.Text;\ \textcolor{comment}{//<-\/-\/-\/\ Pobranie\ imienia\ użytkownika.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ lastName\ =\ LastNameEntry.Text;\ \textcolor{comment}{//<-\/-\/-\/\ Pobranie\ nazwiska\ użytkownika.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ email\ =\ EmailEntry.Text;\ \textcolor{comment}{//<-\/-\/-\/\ Pobranie\ adresu\ e-\/mail.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ password\ =\ PasswordEntry.Text;\ \textcolor{comment}{//<-\/-\/-\/\ Pobranie\ hasła.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ confirmPassword\ =\ ConfirmPasswordEntry.Text;\ \textcolor{comment}{//<-\/-\/-\/\ Pobranie\ potwierdzenia\ hasła.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{string}.IsNullOrEmpty(firstName)\ ||\ \textcolor{keywordtype}{string}.IsNullOrEmpty(lastName)\ ||}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}.IsNullOrEmpty(email)\ ||\ \textcolor{keywordtype}{string}.IsNullOrEmpty(password)\ ||}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}.IsNullOrEmpty(confirmPassword))}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ await\ DisplayAlert(\textcolor{stringliteral}{"{}Error"{}},\ \textcolor{stringliteral}{"{}Please\ fill\ in\ all\ fields."{}},\ \textcolor{stringliteral}{"{}OK"{}});\ \textcolor{comment}{//<-\/-\/-\/\ Sprawdzenie\ pustych\ pól.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (password\ !=\ confirmPassword)}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ await\ DisplayAlert(\textcolor{stringliteral}{"{}Error"{}},\ \textcolor{stringliteral}{"{}Passwords\ do\ not\ match."{}},\ \textcolor{stringliteral}{"{}OK"{}});\ \textcolor{comment}{//<-\/-\/-\/\ Sprawdzenie\ zgodności\ haseł.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (password.Length\ <\ 6)}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ await\ DisplayAlert(\textcolor{stringliteral}{"{}Error"{}},\ \textcolor{stringliteral}{"{}Password\ must\ be\ at\ least\ 6\ signs!"{}},\ \textcolor{stringliteral}{"{}OK"{}});\ \textcolor{comment}{//<-\/-\/-\/\ Sprawdzenie\ długości\ hasła.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ result\ =\ await\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_sign_up_page_affded1b4f6cfc45d38eaa4429319224f}{\_authService}}.\mbox{\hyperlink{class_firebase_auth_service_a91814dc93e8c8d6b48370c29d069a1c7}{RegisterWithEmailAndPasswordAsync}}(email,\ password);\ \textcolor{comment}{//<-\/-\/-\/\ Rejestracja\ użytkownika.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\textcolor{keywordtype}{string}.IsNullOrEmpty(result)\ \&\&\ result.StartsWith(\textcolor{stringliteral}{"{}Error"{}}))}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ await\ DisplayAlert(\textcolor{stringliteral}{"{}Error"{}},\ \textcolor{stringliteral}{"{}Unable\ to\ register\ account"{}},\ \textcolor{stringliteral}{"{}OK"{}});\ \textcolor{comment}{//<-\/-\/-\/\ Obsługa\ błędu\ rejestracji.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ await\ DisplayAlert(\textcolor{stringliteral}{"{}Registration\ Success"{}},\ \textcolor{stringliteral}{"{}Account\ created\ successfully!"{}},\ \textcolor{stringliteral}{"{}OK"{}});\ \textcolor{comment}{//<-\/-\/-\/\ Sukces\ rejestracji.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Navigation.PopAsync();\ \textcolor{comment}{//<-\/-\/-\/\ Powrót\ do\ poprzedniej\ strony.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ EmailEntry.Text\ =\ \textcolor{keywordtype}{string}.Empty;\ \textcolor{comment}{//<-\/-\/-\/\ Wyczyszczenie\ pola\ e-\/mail.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ PasswordEntry.Text\ =\ \textcolor{keywordtype}{string}.Empty;\ \textcolor{comment}{//<-\/-\/-\/\ Wyczyszczenie\ pola\ hasła.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ ConfirmPasswordEntry.Text\ =\ \textcolor{keywordtype}{string}.Empty;\ \textcolor{comment}{//<-\/-\/-\/\ Wyczyszczenie\ pola\ potwierdzenia\ hasła.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00078}\mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_sign_up_page_a4bc47f25ee500e1d653d38d4fb8849d0}{00078}}\ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_y_d_1_1_pages_1_1_sign_up_page_a4bc47f25ee500e1d653d38d4fb8849d0}{OnLoginTapped}}(\textcolor{keywordtype}{object}\ sender,\ EventArgs\ e)}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00079}00079\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ await\ Navigation.PopAsync();\ \textcolor{comment}{//<-\/-\/-\/\ Powrót\ do\ poprzedniej\ strony.}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sign_up_page_8xaml_8cs_source_l00082}00082\ \}}
+
+\end{DoxyCode}

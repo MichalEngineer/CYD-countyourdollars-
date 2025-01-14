@@ -1,0 +1,123 @@
+\doxysection{Firebase\+Auth\+Service.\+cs}
+\hypertarget{_firebase_auth_service_8cs_source}{}\label{_firebase_auth_service_8cs_source}\index{CYD/Services/FirebaseAuthService.cs@{CYD/Services/FirebaseAuthService.cs}}
+\mbox{\hyperlink{_firebase_auth_service_8cs}{Idź do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }Firebase.Auth;\ \textcolor{comment}{//\ <-\/-\/-\/\ Użycie\ pakietu\ Firebase.Auth,\ który\ zawiera\ funkcje\ do\ autoryzacji}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }System;\ \textcolor{comment}{//\ <-\/-\/-\/\ Użycie\ przestrzeni\ nazw\ System,\ zapewniającej\ podstawowe\ funkcje\ systemowe}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }System.Threading.Tasks;\ \textcolor{comment}{//\ <-\/-\/-\/\ Użycie\ przestrzeni\ nazw\ Tasków,\ pozwalających\ na\ operacje\ asynchroniczne}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }Microsoft.Maui.Storage;\ \textcolor{comment}{//\ <-\/-\/-\/\ Użycie\ przestrzeni\ nazw\ do\ pracy\ z\ przechowywaniem\ danych\ aplikacji}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00006}\mbox{\hyperlink{class_firebase_auth_service}{00006}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_firebase_auth_service}{FirebaseAuthService}}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00008}\mbox{\hyperlink{class_firebase_auth_service_a08f129dfe61a9cf8860cf4031d1eaa63}{00008}}\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ FirebaseAuthProvider\ \mbox{\hyperlink{class_firebase_auth_service_a08f129dfe61a9cf8860cf4031d1eaa63}{\_authProvider}};\ \textcolor{comment}{//\ <-\/-\/-\/\ Provider\ do\ autentykacji\ z\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00009}\mbox{\hyperlink{class_firebase_auth_service_a7a08a29d31a03c4674e3be7c81c3d1be}{00009}}\ \ \ \ \ \textcolor{keyword}{private}\ readonly\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_firebase_auth_service_a7a08a29d31a03c4674e3be7c81c3d1be}{\_firebaseApiKey}}\ =\ \textcolor{stringliteral}{"{}AIzaSyCsPbeDGIi0slQWhIcPr2hI0NShLn7dE7M"{}};\ \textcolor{comment}{//\ <-\/-\/-\/\ Klucz\ API\ dla\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00010}\mbox{\hyperlink{class_firebase_auth_service_a9aa35baf6a2e8e7e375fad4171c3d300}{00010}}\ \ \ \ \ \textcolor{keyword}{private}\ FirebaseAuthLink\ \mbox{\hyperlink{class_firebase_auth_service_a9aa35baf6a2e8e7e375fad4171c3d300}{\_authLink}};\ \textcolor{comment}{//\ <-\/-\/-\/\ Przechowuje\ dane\ o\ zalogowanym\ użytkowniku}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00012}00012\ \ \ \ \ \textcolor{comment}{//\ Konstruktor\ inicjalizujący\ usługę\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00013}\mbox{\hyperlink{class_firebase_auth_service_a1ff28a545c3c096264abaa29afe6bea3}{00013}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_firebase_auth_service_a1ff28a545c3c096264abaa29afe6bea3}{FirebaseAuthService}}()}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00014}00014\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00015}00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_firebase_auth_service_a08f129dfe61a9cf8860cf4031d1eaa63}{\_authProvider}}\ =\ \textcolor{keyword}{new}\ FirebaseAuthProvider(\textcolor{keyword}{new}\ FirebaseConfig(\mbox{\hyperlink{class_firebase_auth_service_a7a08a29d31a03c4674e3be7c81c3d1be}{\_firebaseApiKey}}));\ \textcolor{comment}{//\ <-\/-\/-\/\ Inicjalizacja\ FirebaseAuthProvider\ z\ kluczem\ API}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00016}00016\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00018}00018\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00019}00019\ \ \ \ \ \textcolor{comment}{//\ Rejestracja\ nowego\ użytkownika}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00020}00020\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00021}\mbox{\hyperlink{class_firebase_auth_service_a91814dc93e8c8d6b48370c29d069a1c7}{00021}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<string>\ \mbox{\hyperlink{class_firebase_auth_service_a91814dc93e8c8d6b48370c29d069a1c7}{RegisterWithEmailAndPasswordAsync}}(\textcolor{keywordtype}{string}\ email,\ \textcolor{keywordtype}{string}\ password)}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00022}00022\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tworzy\ nowego\ użytkownika\ za\ pomocą\ podanego\ e-\/maila\ i\ hasła}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_firebase_auth_service_a9aa35baf6a2e8e7e375fad4171c3d300}{\_authLink}}\ =\ await\ \mbox{\hyperlink{class_firebase_auth_service_a08f129dfe61a9cf8860cf4031d1eaa63}{\_authProvider}}.CreateUserWithEmailAndPasswordAsync(email,\ password);\ \textcolor{comment}{//\ <-\/-\/-\/\ Rejestracja\ użytkownika\ w\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Zapisuje\ email\ do\ SecureStorage}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ await\ SecureStorage.SetAsync(\textcolor{stringliteral}{"{}user\_email"{}},\ email);\ \textcolor{comment}{//\ <-\/-\/-\/\ Zapisuje\ e-\/mail\ użytkownika\ w\ SecureStorage}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pobiera\ token\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ token\ =\ \mbox{\hyperlink{class_firebase_auth_service_a9aa35baf6a2e8e7e375fad4171c3d300}{\_authLink}}.FirebaseToken;\ \textcolor{comment}{//\ <-\/-\/-\/\ Pobiera\ token\ autentykacji\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ token;\ \textcolor{comment}{//\ Zwraca\ token,\ jeśli\ rejestracja\ się\ powiedzie}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (FirebaseAuthException\ ex)}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Obsługuje\ specyficzne\ błędy\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \$\textcolor{stringliteral}{"{}Error:\ \{ex.Reason\}"{}};\ \textcolor{comment}{//\ <-\/-\/-\/\ Zwraca\ błąd,\ jeśli\ wystąpił\ problem\ z\ rejestracją}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Obsługuje\ ogólne\ błędy}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \$\textcolor{stringliteral}{"{}Error:\ \{ex.Message\}"{}};\ \textcolor{comment}{//\ <-\/-\/-\/\ Zwraca\ ogólny\ błąd}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00045}00045\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//\ Logowanie\ istniejącego\ użytkownika}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00050}\mbox{\hyperlink{class_firebase_auth_service_a7f224c854615c453118e1d97d4ba137b}{00050}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<string>\ \mbox{\hyperlink{class_firebase_auth_service_a7f224c854615c453118e1d97d4ba137b}{SignInWithEmailAndPasswordAsync}}(\textcolor{keywordtype}{string}\ email,\ \textcolor{keywordtype}{string}\ password)}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00051}00051\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Loguje\ użytkownika\ za\ pomocą\ podanego\ e-\/maila\ i\ hasła}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_firebase_auth_service_a9aa35baf6a2e8e7e375fad4171c3d300}{\_authLink}}\ =\ await\ \mbox{\hyperlink{class_firebase_auth_service_a08f129dfe61a9cf8860cf4031d1eaa63}{\_authProvider}}.SignInWithEmailAndPasswordAsync(email,\ password);\ \textcolor{comment}{//\ <-\/-\/-\/\ Logowanie\ użytkownika\ w\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Zapisuje\ email\ do\ SecureStorage}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ await\ SecureStorage.SetAsync(\textcolor{stringliteral}{"{}user\_email"{}},\ email);\ \textcolor{comment}{//\ <-\/-\/-\/\ Zapisuje\ e-\/mail\ użytkownika\ w\ SecureStorage}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ await\ SecureStorage.SetAsync(\textcolor{stringliteral}{"{}user\_uid"{}},\ \mbox{\hyperlink{class_firebase_auth_service_a9aa35baf6a2e8e7e375fad4171c3d300}{\_authLink}}.User.LocalId);\ \textcolor{comment}{//\ <-\/-\/-\/\ Zapisuje\ UID\ użytkownika\ w\ SecureStorage}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pobiera\ token\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ token\ =\ \mbox{\hyperlink{class_firebase_auth_service_a9aa35baf6a2e8e7e375fad4171c3d300}{\_authLink}}.FirebaseToken;\ \textcolor{comment}{//\ <-\/-\/-\/\ Pobiera\ token\ autentykacji\ Firebase}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ token;\ \textcolor{comment}{//\ Zwraca\ token,\ jeśli\ logowanie\ się\ powiedzie}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Zwraca\ błąd,\ jeśli\ logowanie\ nie\ powiedzie\ się}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \$\textcolor{stringliteral}{"{}Error:\ \{ex.Message\}"{}};\ \textcolor{comment}{//\ <-\/-\/-\/\ Zwraca\ błąd,\ jeśli\ wystąpił\ problem\ z\ logowaniem}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00072}00072\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00073}00073\ \ \ \ \ \textcolor{comment}{//\ Pobiera\ adres\ e-\/mail\ aktualnie\ zalogowanego\ użytkownika}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00074}00074\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00075}\mbox{\hyperlink{class_firebase_auth_service_ae16aa4d346219f9095fa94ade32495d5}{00075}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_firebase_auth_service_ae16aa4d346219f9095fa94ade32495d5}{GetCurrentUserEmail}}()}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00076}00076\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_firebase_auth_service_a9aa35baf6a2e8e7e375fad4171c3d300}{\_authLink}}?.User.Email;\ \textcolor{comment}{//\ <-\/-\/-\/\ Zwraca\ e-\/mail\ użytkownika\ lub\ null,\ jeśli\ użytkownik\ nie\ jest\ zalogowany}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00080}00080\ \ \ \ \ \textcolor{comment}{//\ Asynchronicznie\ pobiera\ e-\/mail\ aktualnie\ zalogowanego\ użytkownika}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00081}\mbox{\hyperlink{class_firebase_auth_service_ae120ed9067385598b3a99ddb9f25411a}{00081}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<string>\ \mbox{\hyperlink{class_firebase_auth_service_ae120ed9067385598b3a99ddb9f25411a}{GetCurrentUserEmailAsync}}()}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00082}00082\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ var\ email\ =\ await\ SecureStorage.GetAsync(\textcolor{stringliteral}{"{}user\_email"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Pobiera\ zapisany\ e-\/mail\ z\ SecureStorage}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ email\ ??\ \textcolor{stringliteral}{"{}Nie\ jesteś\ zalogowany"{}};\ \textcolor{comment}{//\ <-\/-\/-\/\ Zwraca\ e-\/mail\ lub\ komunikat,\ że\ użytkownik\ nie\ jest\ zalogowany}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00085}00085\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00087}00087\ \ \ \ \ \textcolor{comment}{//\ Asynchronicznie\ pobiera\ UID\ (identyfikator\ użytkownika)\ aktualnie\ zalogowanego\ użytkownika}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00088}\mbox{\hyperlink{class_firebase_auth_service_a2f101b2f293ef3f9ab57fb7cd03162c7}{00088}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<string>\ \mbox{\hyperlink{class_firebase_auth_service_a2f101b2f293ef3f9ab57fb7cd03162c7}{GetCurrentUserIdAsync}}()}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00089}00089\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Zwróci\ UID\ użytkownika\ (LocalId)}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ var\ email\ =\ await\ SecureStorage.GetAsync(\textcolor{stringliteral}{"{}user\_email"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Pobiera\ e-\/mail\ z\ SecureStorage}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{string}.IsNullOrEmpty(email))\ \textcolor{comment}{//\ <-\/-\/-\/\ Sprawdza,\ czy\ e-\/mail\ jest\ pusty\ (czy\ użytkownik\ nie\ jest\ zalogowany)}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{string}.Empty;\ \textcolor{comment}{//\ <-\/-\/-\/\ Jeśli\ użytkownik\ nie\ jest\ zalogowany,\ zwraca\ pusty\ ciąg}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00095}00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Logowanie\ się\ na\ podstawie\ zapisanej\ lokalnie\ wiadomości\ e-\/mail}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00098}00098\ \ \ \ \ \ \ \ \ var\ user\ =\ await\ \mbox{\hyperlink{class_firebase_auth_service_a08f129dfe61a9cf8860cf4031d1eaa63}{\_authProvider}}.SignInWithEmailAndPasswordAsync(email,\ \textcolor{stringliteral}{"{}userPassword"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Loguje\ się\ na\ podstawie\ zapisanego\ e-\/maila\ (tu\ domyślne\ hasło\ "{}userPassword"{})}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ user.User.LocalId;\ \textcolor{comment}{//\ <-\/-\/-\/\ Zwraca\ UID\ (LocalId)\ użytkownika}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00100}00100\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00102}00102\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00103}00103\ \ \ \ \ \textcolor{comment}{//\ Wylogowanie\ użytkownika}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00104}00104\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00105}\mbox{\hyperlink{class_firebase_auth_service_a0e29b677d4202844cad416e34bc76979}{00105}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task<bool>\ \mbox{\hyperlink{class_firebase_auth_service_a0e29b677d4202844cad416e34bc76979}{IsUserLoggedInAsync}}()}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00106}00106\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00107}00107\ \ \ \ \ \ \ \ \ var\ email\ =\ await\ SecureStorage.GetAsync(\textcolor{stringliteral}{"{}user\_email"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Pobiera\ zapisany\ e-\/mail\ użytkownika\ z\ SecureStorage}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !\textcolor{keywordtype}{string}.IsNullOrEmpty(email);\ \textcolor{comment}{//\ <-\/-\/-\/\ Sprawdza,\ czy\ e-\/mail\ jest\ zapisany\ (czy\ użytkownik\ jest\ zalogowany)}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00109}00109\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00111}00111\ \ \ \ \ \textcolor{comment}{//\ Wylogowanie\ użytkownika}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00112}\mbox{\hyperlink{class_firebase_auth_service_af6984e93bc626c9b33ee158b27232365}{00112}}\ \ \ \ \ \textcolor{keyword}{public}\ async\ Task\ \mbox{\hyperlink{class_firebase_auth_service_af6984e93bc626c9b33ee158b27232365}{LogoutAsync}}()}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00113}00113\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Usuwa\ e-\/mail\ użytkownika\ z\ SecureStorage\ podczas\ wylogowania}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00115}00115\ \ \ \ \ \ \ \ \ SecureStorage.Remove(\textcolor{stringliteral}{"{}user\_email"{}});\ \textcolor{comment}{//\ <-\/-\/-\/\ Usuwa\ e-\/mail\ z\ SecureStorage,\ aby\ wylogować\ użytkownika}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00116}00116\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firebase_auth_service_8cs_source_l00117}00117\ \}}
+
+\end{DoxyCode}
